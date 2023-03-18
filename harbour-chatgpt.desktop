@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=harbour-chatgpt
+Exec=harbour-chatgpt
+Name=ChatGPT
+
+[X-Sailjail]
+# Replace with your organization as a reverse domain name
+OrganizationName=cz.chrastecky
+# ApplicationName does not have to be identical to Name
+ApplicationName=chatgpt
+# Add the required permissions here
+Permissions=Secrets
