@@ -1,5 +1,7 @@
 Name:       harbour-chatgpt
 
+%define _binary_payload w2.xzdio
+
 Summary:    ChatGPT
 Version:    0.9.0
 Release:    1

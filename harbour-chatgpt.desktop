@@ -11,4 +11,4 @@ OrganizationName=cz.chrastecky
 # ApplicationName does not have to be identical to Name
 ApplicationName=chatgpt
 # Add the required permissions here
-Permissions=Secrets
+Permissions=Secrets;Internet
