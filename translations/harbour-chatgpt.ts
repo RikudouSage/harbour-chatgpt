@@ -90,7 +90,7 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <source>My Cover</source>
+        <source>ChatGPT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

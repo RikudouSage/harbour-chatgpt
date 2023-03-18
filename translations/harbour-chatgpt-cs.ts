@@ -107,7 +107,7 @@
     <name>CoverPage</name>
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="8"/>
-        <source>My Cover</source>
+        <source>ChatGPT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
