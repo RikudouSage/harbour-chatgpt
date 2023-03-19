@@ -61,7 +61,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ChatDetailPage.qml" line="106"/>
+        <location filename="../qml/pages/ChatDetailPage.qml" line="107"/>
         <source>Type your messsage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -69,12 +69,12 @@
 <context>
     <name>ChatGptClient</name>
     <message>
-        <location filename="../src/chatgptclient.cpp" line="74"/>
+        <location filename="../src/chatgptclient.cpp" line="80"/>
         <source>There was a network error.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/chatgptclient.cpp" line="82"/>
+        <location filename="../src/chatgptclient.cpp" line="90"/>
         <source>ChatGPT provided no response.</source>
         <translation type="unfinished"></translation>
     </message>

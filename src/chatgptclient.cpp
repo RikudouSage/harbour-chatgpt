@@ -45,6 +45,10 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
     request.setRawHeader("Authorization", QString("Bearer " + secretsHandler->apiKey()).toUtf8());
     request.setHeader(QNetworkRequest::KnownHeaders::ContentTypeHeader, "application/json");
 
+#ifdef QT_DEBUG
+   qDebug() << "Api key: " << secretsHandler->apiKey();
+#endif
+
     QJsonObject body;
     QJsonArray messages;
     body["model"] = "gpt-3.5-turbo";
@@ -58,7 +62,9 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
     }
     body["messages"] = messages;
 
+#ifdef QT_DEBUG
     qDebug() << body;
+#endif
 
     QNetworkAccessManager *networkAccessManager = new QNetworkAccessManager(this);
     connect(networkAccessManager, &QNetworkAccessManager::finished, [=](QNetworkReply *reply) {
@@ -76,7 +82,9 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
         }
 
         QJsonObject response = QJsonDocument::fromJson(reply->readAll()).object();
+#ifdef QT_DEBUG
         qDebug() << response;
+#endif
         const auto choices = response["choices"].toArray();
         if (choices.size() < 1) {
             emit error(tr("ChatGPT provided no response."));

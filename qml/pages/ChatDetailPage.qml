@@ -83,6 +83,7 @@ Page {
                         wrapMode: Text.WordWrap
                         x: Theme.paddingSmall
                         y: Theme.paddingSmall
+                        color: item.author === ChatMessage.User ? Theme.highlightColor : Theme.primaryColor
                     }
                 }
             }
