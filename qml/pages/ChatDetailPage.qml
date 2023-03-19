@@ -104,7 +104,7 @@ Page {
             flickable.scrollToBottom();
         }
 
-        label: qsTr("Type your messsage")
+        label: qsTr("Type your message")
 
         EnterKey.iconSource: "image://theme/icon-m-enter-accept"
         EnterKey.onClicked: {

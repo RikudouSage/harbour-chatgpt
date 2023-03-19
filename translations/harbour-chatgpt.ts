@@ -52,7 +52,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Type your messsage</source>
+        <source>Type your message</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
