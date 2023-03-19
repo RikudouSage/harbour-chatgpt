@@ -131,7 +131,7 @@
     </message>
     <message>
         <source>To use this app you need to provide your own ChatGPT api key. &lt;a href=&apos;#help&apos; style=&apos;color: %1;&apos;&gt;Click here&lt;/a&gt; to get help with getting the api key.</source>
-        <translation>Fär att använda den här appen måste du ange en egen API-nyckel från ChatGPT. &lt;a href=&apos;#help&apos; style=&apos;color: %1;&apos;&gt;Tryck här&lt;/a&gt; för hjälp med att skaffa en API-nyckel.</translation>
+        <translation>För att använda den här appen måste du ange en egen API-nyckel för ChatGPT. &lt;a href=&apos;#help&apos; style=&apos;color: %1;&apos;&gt;Tryck här&lt;/a&gt; för hjälp med att skaffa en API-nyckel.</translation>
     </message>
 </context>
 <context>
