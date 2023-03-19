@@ -48,6 +48,8 @@ jobs:
     needs:
       - build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Download armv7hl
         uses: actions/download-artifact@v2
