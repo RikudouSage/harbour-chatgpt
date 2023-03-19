@@ -55,6 +55,16 @@ void DatabaseManager::migrate(QSqlDatabase database)
         applyMigration(1, database);
         latestVersion = getLatestMigrationsVersion(database);
     }
+
+    if (latestVersion == 1) {
+        QSqlQuery query(database);
+        if (!query.exec("CREATE TABLE settings (setting TEXT NOT NULL PRIMARY KEY, value TEXT)")) {
+            qFatal("Failed to migrate to version 2");
+        }
+
+        applyMigration(2, database);
+        latestVersion = getLatestMigrationsVersion(database);
+    }
 }
 
 int DatabaseManager::getQuerySize(QSqlQuery &query)

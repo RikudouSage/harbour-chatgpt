@@ -6,6 +6,7 @@
 
 #include "chat.h"
 #include "secretshandler.h"
+#include "settings.h"
 
 class ChatGptClient : public QObject
 {
@@ -22,6 +23,7 @@ signals:
     void error(const QString &reason);
 private:
     SecretsHandler *secretsHandler = new SecretsHandler(this);
+    Settings *settings = new Settings(this);
 };
 
 #endif // CHATGPTCLIENT_H

@@ -53,7 +53,7 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
     QJsonArray messages;
     body["model"] = "gpt-3.5-turbo";
 
-    for (const auto messageQObject : chat->messages().mid(chat->messages().size() - 10)) {
+    for (const auto messageQObject : chat->messages().mid(chat->messages().size() - settings->conversationLength())) {
         const auto message = static_cast<ChatMessage*>(messageQObject);
         QJsonObject messageBody;
         messageBody["role"] = message->author() == ChatMessage::Author::User ? "user" : "assistant";

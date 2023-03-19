@@ -19,6 +19,13 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                text: qsTr("Settings")
+                onClicked: {
+                    pageStack.push("SettingsPage.qml");
+                }
+            }
+
+            MenuItem {
                 text: qsTr("New chat")
                 onClicked: {
                     pageStack.push("ChatDetailPage.qml");

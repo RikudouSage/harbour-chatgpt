@@ -83,23 +83,37 @@
     <name>ChatListPage</name>
     <message>
         <location filename="../qml/pages/ChatListPage.qml" line="22"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ChatListPage.qml" line="29"/>
         <source>New chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ChatListPage.qml" line="36"/>
+        <location filename="../qml/pages/ChatListPage.qml" line="43"/>
         <source>Chat list</source>
         <extracomment>Page title</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ChatListPage.qml" line="92"/>
+        <location filename="../qml/pages/ChatListPage.qml" line="99"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ChatListPage.qml" line="105"/>
+        <location filename="../qml/pages/ChatListPage.qml" line="112"/>
         <source>There are no chats, use pull down menu to create one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConfirmSettingDialog</name>
+    <message>
+        <location filename="../qml/pages/ConfirmSettingDialog.qml" line="33"/>
+        <source>Confirm</source>
+        <extracomment>Dialog accept text</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -142,6 +156,40 @@
     <message>
         <location filename="../qml/pages/LoginPage.qml" line="56"/>
         <source>Api key</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsPage</name>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="25"/>
+        <source>Settings</source>
+        <extracomment>Page title</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="29"/>
+        <source>Conversation length: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="36"/>
+        <source>Configure the length of the conversation that is sent to the ChatGPT model.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="37"/>
+        <source>To maintain context, the AI model needs to see the previous messages as well, this configures how many past messages are sent.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="38"/>
+        <source>Note that previous messages count towards the token limit of the AI model which is currently %1 tokens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="41"/>
+        <source>Conversation length (number of messages)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

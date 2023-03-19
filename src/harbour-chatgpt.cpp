@@ -16,6 +16,7 @@
 #include "chatstorage.h"
 #include "databasemanager.h"
 #include "chatmessage.h"
+#include "settings.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,6 +28,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<SecretsHandler>("cz.chrastecky.chatgpt", 1, 0, "SecretsHandler");
     qmlRegisterType<ChatGptClient>("cz.chrastecky.chatgpt", 1, 0, "ChatGptClient");
     qmlRegisterType<ChatStorage>("cz.chrastecky.chatgpt", 1, 0, "ChatStorage");
+    qmlRegisterType<Settings>("cz.chrastecky.chatgpt", 1, 0, "Settings");
     qmlRegisterUncreatableType<ChatMessage>("cz.chrastecky.chatgpt", 1, 0, "ChatMessage", "Uncreatable");
 
     v->setSource(SailfishApp::pathToMainQml());

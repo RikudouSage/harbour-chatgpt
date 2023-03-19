@@ -86,6 +86,18 @@
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConfirmSettingDialog</name>
+    <message>
+        <source>Confirm</source>
+        <extracomment>Dialog accept text</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
@@ -119,6 +131,34 @@
     </message>
     <message>
         <source>To use this app you need to provide your own ChatGPT api key. &lt;a href=&apos;#help&apos; style=&apos;color: %1;&apos;&gt;Click here&lt;/a&gt; to get help with getting the api key.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsPage</name>
+    <message>
+        <source>Settings</source>
+        <extracomment>Page title</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure the length of the conversation that is sent to the ChatGPT model.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To maintain context, the AI model needs to see the previous messages as well, this configures how many past messages are sent.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Note that previous messages count towards the token limit of the AI model which is currently %1 tokens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation length (number of messages)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation length: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
