@@ -52,7 +52,7 @@
         <translation>Ändra titel</translation>
     </message>
     <message>
-        <source>Type your messsage</source>
+        <source>Type your message</source>
         <translation>Skriv ditt meddelande</translation>
     </message>
 </context>
