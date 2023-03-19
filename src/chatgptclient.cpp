@@ -61,6 +61,10 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
         messages.append(messageBody);
     }
     body["messages"] = messages;
+    body["temperature"] = settings->temperature();
+    body["top_p"] = settings->topPercentage();
+    body["presence_penalty"] = settings->presencePenalty();
+    body["frequency_penalty"] = settings->frequencyPenalty();
 
 #ifdef QT_DEBUG
     qDebug() << body;

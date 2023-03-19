@@ -48,6 +48,118 @@ Page {
                     });
                 }
             }
+
+            TextSwitch {
+                //: Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature to understand what the temperature here means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.
+                text: qsTr("Sampling temperature: %1").arg(settings.temperature)
+                checked: true
+                automaticCheck: false
+
+                onClicked: {
+                    const dialog = pageStack.push("ConfirmSettingDialog.qml", {
+                        messages: [
+                            qsTr("What sampling temperature to use."),
+                            qsTr("Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic."),
+                            qsTr("It's generally recommended to alter this setting or top percentage, but not both."),
+                        ],
+                        sliderVisible: true,
+                        sliderMax: 2,
+                        sliderMin: 0,
+                        sliderStep: 0.1,
+                        //: Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature to understand what the temperature here means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.
+                        sliderDescription: qsTr("Sampling temperature"),
+                        sliderValue: settings.temperature,
+                    });
+
+                    dialog.accepted.connect(function() {
+                        const value = dialog.sliderValue;
+                        settings.temperature = value;
+                    });
+                }
+            }
+
+            TextSwitch {
+                //: Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-top_p to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.
+                text: qsTr("Top percentage: %1").arg(settings.topPercentage)
+                checked: true
+                automaticCheck: false
+
+                onClicked: {
+                    const dialog = pageStack.push("ConfirmSettingDialog.qml", {
+                        messages: [
+                            qsTr("An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top percentage probability mass."),
+                            qsTr("So 0.1 means only the tokens comprising the top 10% probability mass are considered."),
+                            qsTr("It's generally recommended to alter this setting or sampling temperature, but not both."),
+                        ],
+                        sliderVisible: true,
+                        sliderMax: 1,
+                        sliderMin: 0,
+                        sliderStep: 0.01,
+                        //: Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-top_p to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.
+                        sliderDescription: qsTr("Top percentage"),
+                        sliderValue: settings.topPercentage,
+                    });
+
+                    dialog.accepted.connect(function() {
+                        const value = dialog.sliderValue;
+                        settings.topPercentage = value;
+                    });
+                }
+            }
+
+            TextSwitch {
+                //: Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-presence_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.
+                text: qsTr("Presence penalty: %1").arg(settings.presencePenalty)
+                checked: true
+                automaticCheck: false
+
+                onClicked: {
+                    const dialog = pageStack.push("ConfirmSettingDialog.qml", {
+                        messages: [
+                            qsTr("Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics."),
+                        ],
+                        sliderVisible: true,
+                        sliderMax: 2,
+                        sliderMin: -2,
+                        sliderStep: 0.1,
+                        //: Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-presence_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.
+                        sliderDescription: qsTr("Presence penalty"),
+                        sliderValue: settings.presencePenalty,
+                    });
+
+                    dialog.accepted.connect(function() {
+                        const value = dialog.sliderValue;
+                        settings.presencePenalty = value;
+                    });
+                }
+            }
+
+            TextSwitch {
+                //: Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-frequency_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.
+                text: qsTr("Frequency penalty: %1").arg(settings.frequencyPenalty)
+                checked: true
+                automaticCheck: false
+
+                onClicked: {
+                    const dialog = pageStack.push("ConfirmSettingDialog.qml", {
+                        messages: [
+                            qsTr("Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim."),
+                        ],
+                        sliderVisible: true,
+                        sliderMax: 2,
+                        sliderMin: -2,
+                        sliderStep: 0.1,
+                        //: Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-frequency_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.
+                        sliderDescription: qsTr("Presence penalty"),
+                        sliderValue: settings.frequencyPenalty,
+                    });
+
+                    dialog.accepted.connect(function() {
+                        const value = dialog.sliderValue;
+                        settings.frequencyPenalty = value;
+                    });
+                }
+            }
         }
     }
 }

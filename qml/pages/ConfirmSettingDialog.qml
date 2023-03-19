@@ -10,6 +10,13 @@ Dialog {
     property alias intFieldDescription: intField.label
     property alias intValue: intField.text
 
+    property alias sliderVisible: sliderField.visible
+    property alias sliderMax: sliderField.maximumValue
+    property alias sliderMin: sliderField.minimumValue
+    property alias sliderStep: sliderField.stepSize
+    property string sliderDescription: ''
+    property alias sliderValue: sliderField.value
+
     canAccept: (intFieldVisible ? intValue.length > 0 : true)
 
     id: page
@@ -50,6 +57,14 @@ Dialog {
             TextField {
                 id: intField
                 inputMethodHints: Qt.ImhDigitsOnly
+                visible: false
+            }
+
+            Slider {
+                id: sliderField
+                visible: false
+                width: parent.width
+                label: sliderDescription ? sliderDescription + ' (' + String(value) + ')' : String(value)
             }
         }
     }

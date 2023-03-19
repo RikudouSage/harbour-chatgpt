@@ -29,6 +29,58 @@ void Settings::setConversationLength(int length)
     }
 }
 
+double Settings::temperature()
+{
+    return getDoubleSetting("temperature", 1);
+}
+
+void Settings::setTemperature(double temperature)
+{
+    if (temperature != this->temperature()) {
+        setSetting("temperature", temperature);
+        emit temperatureChanged();
+    }
+}
+
+double Settings::topPercentage()
+{
+    return getDoubleSetting("topPercentage", 1);
+}
+
+void Settings::setTopPercentage(double percentage)
+{
+    if (percentage != topPercentage()) {
+        setSetting("topPercentage", percentage);
+        emit topPercentageChanged();
+    }
+}
+
+double Settings::presencePenalty()
+{
+    return getDoubleSetting("presencePenalty", 0);
+}
+
+void Settings::setPresencePenalty(double penalty)
+{
+    if (penalty != presencePenalty()) {
+        setSetting("presencePenalty", penalty);
+        emit presencePenaltyChanged();
+    }
+}
+
+double Settings::frequencyPenalty()
+{
+    return getDoubleSetting("frequencyPenalty", 0);
+}
+
+void Settings::setFrequencyPenalty(double penalty)
+{
+    if (penalty != frequencyPenalty()) {
+        setSetting("frequencyPenalty", penalty);
+        emit frequencyPenaltyChanged();
+    }
+}
+
 void Settings::setSetting(const QString &name, QJsonValue value)
 {
     QSqlQuery existing(database);
@@ -59,6 +111,11 @@ void Settings::setSetting(const QString &name, int value)
     setSetting(name, QJsonValue(value));
 }
 
+void Settings::setSetting(const QString &name, double value)
+{
+    setSetting(name, QJsonValue(value));
+}
+
 QJsonValue Settings::getSetting(const QString &name, QJsonValue defaultValue)
 {
     QSqlQuery existing(database);
@@ -84,6 +141,11 @@ QString Settings::getStringSetting(const QString &name, const QString &defaultVa
 int Settings::getIntSetting(const QString &name, const int &defaultValue)
 {
     return getSetting(name, QJsonValue(defaultValue)).toInt();
+}
+
+double Settings::getDoubleSetting(const QString &name, const double &defaultValue)
+{
+    return getSetting(name, QJsonValue(defaultValue)).toDouble();
 }
 
 QString Settings::jsonValue(QJsonValue value)
@@ -121,10 +183,10 @@ QJsonValue Settings::toJsonValue(const QString &value)
     if (value.size() >= 2 && value.at(0) == QString("\"") && value.at(value.size() - 1) == QString("\"")) {
         return QJsonValue(value.mid(1, value.size() - 1));
     }
-    if (QRegExp("[0-9]+").exactMatch(value)) {
+    if (QRegExp("[0-9-]+").exactMatch(value)) {
         return QJsonValue(value.toInt());
     }
-    if (QRegExp("[0-9.]+").exactMatch(value)) {
+    if (QRegExp("[0-9-.]+").exactMatch(value)) {
         return QJsonValue(value.toDouble());
     }
     if (value == "null") {
