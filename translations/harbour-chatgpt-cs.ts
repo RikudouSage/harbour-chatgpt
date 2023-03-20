@@ -196,51 +196,51 @@
         <location filename="../qml/pages/SettingsPage.qml" line="54"/>
         <source>Sampling temperature: %1</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature to understand what the temperature here means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Sampling temperature: %1</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="70"/>
         <source>Sampling temperature</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature to understand what the temperature here means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Sampling temperature</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="83"/>
         <source>Top percentage: %1</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-top_p to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Top percentage: %1</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="90"/>
         <source>An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top percentage probability mass.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativa, zvaná také nucleus sampling, k vzorkování pomocí temperature. Model zvažuje pouze tokeny s největší procentuální pravděpodobností.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="91"/>
         <source>So 0.1 means only the tokens comprising the top 10% probability mass are considered.</source>
-        <translation type="unfinished"></translation>
+        <translation>Například 0,1 znamená, že pouze tokeny které jsou v horních 10 % pravděpodobnosti budou použity.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="92"/>
         <source>It&apos;s generally recommended to alter this setting or sampling temperature, but not both.</source>
-        <translation type="unfinished"></translation>
+        <translation>Obecně se doporučuje měnit toto nastavení, nebo sampling temperature, ale ne obojí.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="99"/>
         <source>Top percentage</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-top_p to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Top percentage</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="112"/>
         <source>Presence penalty: %1</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-presence_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Presence penalty: %1</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="119"/>
         <source>Positive values penalize new tokens based on whether they appear in the text so far, increasing the model&apos;s likelihood to talk about new topics.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozitivní hodnoty penalizují nové tokeny na základě toho, jestli už se v textu objevily, zvyšují tak šanci, že model bude mluvit o nových tématech.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="126"/>
@@ -249,33 +249,33 @@
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-presence_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.
 ----------
 Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-frequency_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Presence penalty</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="139"/>
         <source>Frequency penalty: %1</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-frequency_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Frequency penalty: %1</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="146"/>
         <source>Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model&apos;s likelihood to repeat the same line verbatim.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozitivní hodnota penalizuje nové tokeny na základě jejich frekvence v textu, snižuje tak šanci modelu, že zopakuje několikrát stejnou věc.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="61"/>
         <source>What sampling temperature to use.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jakou sampling temperature použít.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="62"/>
         <source>Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyšší hodnoty jako 0,8 způsobí, že je text více náhodný, zatímco nižší hodnoty jako 0,2 dělají model více zaměřený a deterministický.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="63"/>
         <source>It&apos;s generally recommended to alter this setting or top percentage, but not both.</source>
-        <translation type="unfinished"></translation>
+        <translation>Obecně se doporučuje měnit toto nastavení, nebo top percentage, ale ne obojí.</translation>
     </message>
 </context>
 </TS>
