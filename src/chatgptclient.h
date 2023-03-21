@@ -20,7 +20,10 @@ public:
 signals:
     void apiKeyChecked(bool isValid, const QString &apiKey);
     void unauthorized();
-    void error(const QString &reason);
+    void chunkReceived(const QString &chunk);
+    void messageFinished();
+    void messageSent();
+
 private:
     SecretsHandler *secretsHandler = new SecretsHandler(this);
     Settings *settings = new Settings(this);

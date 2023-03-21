@@ -57,17 +57,6 @@
     </message>
 </context>
 <context>
-    <name>ChatGptClient</name>
-    <message>
-        <source>There was a network error.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ChatGPT provided no response.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ChatListPage</name>
     <message>
         <source>Chat list</source>

@@ -9,6 +9,7 @@ Page {
     allowedOrientations: Orientation.All
 
     property var chat: null
+    property string messageInProgress: ''
 
     ChatStorage {
         id: chatStorage
@@ -16,12 +17,21 @@ Page {
 
     ChatGptClient {
         id: chatGpt
-    }
 
-    Connections {
-        target: chat
+        onMessageSent: {
+            chatPrompt.enabled = false;
+        }
 
-        onMessagesChanged: {
+        onMessageFinished: {
+            chatPrompt.enabled = true;
+            chat.appendMessage(messageInProgress, ChatMessage.ChatGPT, new Date());
+            messageInProgress = '';
+            chat.save();
+            flickable.scrollToBottom();
+        }
+
+        onChunkReceived: {
+            messageInProgress += chunk;
             flickable.scrollToBottom();
         }
     }
@@ -87,6 +97,29 @@ Page {
                     }
                 }
             }
+
+            ListItem {
+                width: column.width * 0.7
+                Layout.alignment: Qt.AlignLeft
+                contentHeight: messageInProgressField.height + Theme.paddingSmall * 2
+                visible: messageInProgress !== ''
+
+                Rectangle {
+                    color: Theme.highlightBackgroundColor
+                    opacity: Theme.highlightBackgroundOpacity
+                    anchors.fill: parent
+                }
+
+                Label {
+                    id: messageInProgressField
+                    text: messageInProgress
+                    width: parent.width - Theme.paddingSmall * 2
+                    wrapMode: Text.WordWrap
+                    x: Theme.paddingSmall
+                    y: Theme.paddingSmall
+                    color: Theme.primaryColor
+                }
+            }
         }
     }
 
@@ -99,10 +132,6 @@ Page {
         anchors.bottom: parent.bottom
         anchors.leftMargin: Theme.horizontalPageMargin
         anchors.rightMargin: Theme.horizontalPageMargin
-
-        onFocusChanged: {
-            flickable.scrollToBottom();
-        }
 
         label: qsTr("Type your message")
 

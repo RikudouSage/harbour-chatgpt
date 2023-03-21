@@ -80,6 +80,11 @@ void Chat::setTitle(const QString &title)
     }
 }
 
+void Chat::appendMessage(const QString &message, const int &author)
+{
+    appendMessage(message, static_cast<ChatMessage::Author>(author));
+}
+
 void Chat::appendMessage(const QString &message, const ChatMessage::Author &author, const QDateTime &dateTime)
 {
     m_messages.append(new ChatMessage(dateTime, author, message, this));
