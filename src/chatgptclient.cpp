@@ -65,38 +65,30 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
     body["top_p"] = settings->topPercentage();
     body["presence_penalty"] = settings->presencePenalty();
     body["frequency_penalty"] = settings->frequencyPenalty();
+    body["stream"] = true;
 
 #ifdef QT_DEBUG
     qDebug() << body;
 #endif
 
     QNetworkAccessManager *networkAccessManager = new QNetworkAccessManager(this);
-    connect(networkAccessManager, &QNetworkAccessManager::finished, [=](QNetworkReply *reply) {
-        networkAccessManager->deleteLater();
+    auto reply = networkAccessManager->post(request, QJsonDocument(body).toJson());
+    emit messageSent();
 
-        const auto statusCode = reply->attribute(QNetworkRequest::Attribute::HttpStatusCodeAttribute).toInt();
-        if (statusCode == 401) {
-            emit unauthorized();
-            return;
+    connect(reply, &QNetworkReply::readyRead, [=]() {
+        const auto raw = QString(reply->readAll());
+        const auto parts = raw.split("data: ");
+        for (auto part : parts) {
+            part = part.trimmed();
+            if (part == "[DONE]") {
+                emit messageFinished();
+                return;
+            }
+            const auto document = QJsonDocument::fromJson(part.toUtf8()).object();
+            const auto chunk = document["choices"].toArray()[0].toObject()["delta"].toObject()["content"].toString();
+            if (!chunk.trimmed().isEmpty()) {
+                emit chunkReceived(chunk);
+            }
         }
-
-        if (statusCode != 200) {
-            emit error(tr("There was a network error."));
-            return;
-        }
-
-        QJsonObject response = QJsonDocument::fromJson(reply->readAll()).object();
-#ifdef QT_DEBUG
-        qDebug() << response;
-#endif
-        const auto choices = response["choices"].toArray();
-        if (choices.size() < 1) {
-            emit error(tr("ChatGPT provided no response."));
-            return;
-        }
-        const auto message = choices[0].toObject()["message"].toObject()["content"].toString().trimmed();
-        chat->appendMessage(message, ChatMessage::Author::ChatGPT);
-        chat->save();
     });
-    networkAccessManager->post(request, QJsonDocument(body).toJson());
 }

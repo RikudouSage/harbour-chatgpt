@@ -28,6 +28,7 @@ public:
 
     void setTitle(const QString &title);
 
+    Q_INVOKABLE void appendMessage(const QString &message, const int &author);
     void appendMessage(const QString &message, const ChatMessage::Author &author, const QDateTime &dateTime = QDateTime::currentDateTime());
     void appendMessage(const QUuid &id, const QString &message, const ChatMessage::Author &author, const QDateTime &dateTime = QDateTime::currentDateTime());
     Q_INVOKABLE void save();

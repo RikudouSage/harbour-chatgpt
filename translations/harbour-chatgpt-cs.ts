@@ -50,33 +50,20 @@
 <context>
     <name>ChatDetailPage</name>
     <message>
-        <location filename="../qml/pages/ChatDetailPage.qml" line="38"/>
+        <location filename="../qml/pages/ChatDetailPage.qml" line="48"/>
         <source>Change title</source>
         <translation>Změnit název</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ChatDetailPage.qml" line="59"/>
+        <location filename="../qml/pages/ChatDetailPage.qml" line="69"/>
         <source>Chat</source>
         <extracomment>Page title</extracomment>
         <translation>Chat</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ChatDetailPage.qml" line="107"/>
+        <location filename="../qml/pages/ChatDetailPage.qml" line="136"/>
         <source>Type your message</source>
         <translation>Napište svou zprávu</translation>
-    </message>
-</context>
-<context>
-    <name>ChatGptClient</name>
-    <message>
-        <location filename="../src/chatgptclient.cpp" line="84"/>
-        <source>There was a network error.</source>
-        <translation>Nastala síťová chyba.</translation>
-    </message>
-    <message>
-        <location filename="../src/chatgptclient.cpp" line="94"/>
-        <source>ChatGPT provided no response.</source>
-        <translation>ChatGPT nedodal žádnou odpověď.</translation>
     </message>
 </context>
 <context>
