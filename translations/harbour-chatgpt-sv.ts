@@ -79,6 +79,10 @@
         <source>Settings</source>
         <translation>Inställningar</translation>
     </message>
+    <message>
+        <source>Logs</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConfirmSettingDialog</name>
@@ -121,6 +125,38 @@
     <message>
         <source>To use this app you need to provide your own ChatGPT api key. &lt;a href=&apos;#help&apos; style=&apos;color: %1;&apos;&gt;Click here&lt;/a&gt; to get help with getting the api key.</source>
         <translation>För att använda den här appen måste du ange en egen API-nyckel för ChatGPT. &lt;a href=&apos;#help&apos; style=&apos;color: %1;&apos;&gt;Tryck här&lt;/a&gt; för hjälp med att skaffa en API-nyckel.</translation>
+    </message>
+</context>
+<context>
+    <name>LogsPage</name>
+    <message>
+        <source>Logs</source>
+        <extracomment>Page title</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete logs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export to file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There are no logs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There was an error when trying to open the export file &apos;%1&apos; in your Documents folder for writing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logs have been exported! You should find them in your Documents folder under the name &apos;%1&apos;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click &lt;a href=&apos;%2&apos;&gt;here&lt;/a&gt; to contact the developer via email.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -218,6 +254,32 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     <message>
         <source>Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model&apos;s likelihood to repeat the same line verbatim.</source>
         <translation>Positiva värden straffar nya token baserat på deras befintliga frekvens i texten hittills, vilket minskar modellens sannolikhet att upprepa samma rad ordagrant.</translation>
+    </message>
+    <message>
+        <source>Enable logging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have problems with the app, enable this option to collect logs which you can then send to the developer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You need to restart the app for the logging to take full effect.</source>
+        <extracomment>Full effect here means that the setting will not propagate to all parts of the app so some parts will not collect logs until restart</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This will disable log collection, you should restart the app afterwards so it takes full effect.</source>
+        <extracomment>Full effect here means that the setting will not propagate to all parts of the app so some parts will still collect logs</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After disabling logging all previous logs will be deleted to save space.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have not exported the logs anywhere you should do so before disabling logging.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

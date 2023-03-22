@@ -25,10 +25,13 @@ void ChatGptClient::checkApiKey(const QString &apiKey)
     QNetworkAccessManager *networkAccessManager = new QNetworkAccessManager(this);
 
     connect(networkAccessManager, &QNetworkAccessManager::finished, [=](QNetworkReply *reply) {
-        emit apiKeyChecked(reply->attribute(QNetworkRequest::Attribute::HttpStatusCodeAttribute).toInt() == 200, apiKey);
+        const auto statusCode = reply->attribute(QNetworkRequest::Attribute::HttpStatusCodeAttribute).toInt();
+        logger->debug("Got response with status code " + QString::number(statusCode));
+        emit apiKeyChecked(statusCode == 200, apiKey);
         networkAccessManager->deleteLater();
     });
 
+    logger->debug("Checking whether provided api key is valid");
     networkAccessManager->get(request);
 }
 
@@ -37,17 +40,24 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
     auto chat = static_cast<Chat*>(chatQObject);
     chat->appendMessage(message, ChatMessage::Author::User);
     chat->save();
+    logger->debug("Added message '" + message + "' to chat with id " + chat->id().toString());
 
     constexpr auto url = "https://api.openai.com/v1/chat/completions";
 
+    const auto apiKey = secretsHandler->apiKey();
+#ifdef QT_DEBUG
+    qDebug() << "Api key: " << secretsHandler->apiKey();
+#endif
+    if (apiKey.isNull() || apiKey.isEmpty()) {
+        logger->warning("API key is empty or null, probably some problems with secrets storage.");
+        qWarning() << "API key is empty or null, probably some problems with secrets storage.";
+        return;
+    }
+
     QNetworkRequest request;
     request.setUrl(QUrl(url));
-    request.setRawHeader("Authorization", QString("Bearer " + secretsHandler->apiKey()).toUtf8());
+    request.setRawHeader("Authorization", QString("Bearer " + apiKey).toUtf8());
     request.setHeader(QNetworkRequest::KnownHeaders::ContentTypeHeader, "application/json");
-
-#ifdef QT_DEBUG
-   qDebug() << "Api key: " << secretsHandler->apiKey();
-#endif
 
     QJsonObject body;
     QJsonArray messages;
@@ -67,26 +77,34 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
     body["frequency_penalty"] = settings->frequencyPenalty();
     body["stream"] = true;
 
+    const auto json = QJsonDocument(body).toJson();
+
+    logger->debug("Sending request body: " + QString(json));
 #ifdef QT_DEBUG
     qDebug() << body;
 #endif
 
     QNetworkAccessManager *networkAccessManager = new QNetworkAccessManager(this);
-    auto reply = networkAccessManager->post(request, QJsonDocument(body).toJson());
+    auto reply = networkAccessManager->post(request, json);
     emit messageSent();
+    logger->debug("Request has been sent");
 
     connect(reply, &QNetworkReply::readyRead, [=]() {
         const auto raw = QString(reply->readAll());
+        logger->debug("Got raw reply: " + raw);
         const auto parts = raw.split("data: ");
         for (auto part : parts) {
             part = part.trimmed();
+            logger->debug("Processing partial reply:" + part);
             if (part == "[DONE]") {
+                logger->debug("Server has finished sendimg partial messages, whole message has been sent");
                 emit messageFinished();
                 return;
             }
             const auto document = QJsonDocument::fromJson(part.toUtf8()).object();
             const auto chunk = document["choices"].toArray()[0].toObject()["delta"].toObject()["content"].toString();
             if (!chunk.trimmed().isEmpty()) {
+                logger->debug("Chunk was extracted from response: " + chunk);
                 emit chunkReceived(chunk);
             }
         }

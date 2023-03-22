@@ -7,6 +7,7 @@
 #include "chat.h"
 #include "secretshandler.h"
 #include "settings.h"
+#include "logginghandler.h"
 
 class ChatGptClient : public QObject
 {
@@ -27,6 +28,7 @@ signals:
 private:
     SecretsHandler *secretsHandler = new SecretsHandler(this);
     Settings *settings = new Settings(this);
+    const LoggingHandler *logger = new LoggingHandler(this);
 };
 
 #endif // CHATGPTCLIENT_H

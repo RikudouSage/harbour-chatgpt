@@ -51,6 +51,7 @@ Page {
                     dialog.accepted.connect(function() {
                         chat.title = dialog.chatTitle;
                         chat.save();
+                        logger.debug("Changed chat title to " + dialog.chatTitle);
                     });
                 }
             }
@@ -149,5 +150,7 @@ Page {
         }
 
         flickable.scrollToBottom();
+
+        logger.debug("Navigated to ChatDetailPage.qml, chat id: " + chat.id);
     }
 }

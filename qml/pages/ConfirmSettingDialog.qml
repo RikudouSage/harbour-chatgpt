@@ -22,10 +22,6 @@ Dialog {
     id: page
     allowedOrientations: Orientation.All
 
-    Settings {
-        id: settings
-    }
-
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height
@@ -67,5 +63,9 @@ Dialog {
                 label: sliderDescription ? sliderDescription + ' (' + String(value) + ')' : String(value)
             }
         }
+    }
+
+    Component.onCompleted: {
+        logger.debug("Navigated to ConfirmSettingDialog.qml");
     }
 }

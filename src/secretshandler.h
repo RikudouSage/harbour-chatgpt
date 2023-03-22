@@ -7,6 +7,8 @@
 #include <Sailfish/Secrets/request.h>
 #include <Sailfish/Secrets/secret.h>
 
+#include "logginghandler.h"
+
 using Sailfish::Secrets::SecretManager;
 using Sailfish::Secrets::Request;
 using Sailfish::Secrets::Secret;
@@ -23,6 +25,8 @@ public:
     void removeApiKey();
 
 private:
+    const LoggingHandler *logger = new LoggingHandler(this);
+
     static const QString collectionName;
     SecretManager* secretManager = new SecretManager(this);
     bool hasCollection = false;

@@ -35,6 +35,7 @@ SecretsHandler::SecretsHandler(QObject *parent) : QObject(parent)
     cnr.waitForFinished();
 
     hasCollection = isResultValid(cnr) && cnr.collectionNames().contains(collectionName);
+    logger->debug("Has secrets collection: " + QString(hasCollection ? "true" : "false"));
 }
 
 QString SecretsHandler::apiKey()
@@ -63,7 +64,8 @@ bool SecretsHandler::isResultValid(const Request &request)
     auto result = request.result();
     auto isSuccess = result.errorCode() == Result::NoError;
     if (!isSuccess) {
-        qWarning() << result.errorMessage();
+        logger->warning("Request for secret failed: " + result.errorMessage());
+        qWarning() << "Request for secret failed: " + result.errorMessage();
     }
 
     return isSuccess;
@@ -83,6 +85,7 @@ bool SecretsHandler::storeData(const QString &name, const QString &data)
 
     auto existingSecret = getSecret(name);
     if (isSecretValid(existingSecret)) {
+        logger->debug("Secret " + name + " already exists, deleting it before creating it again.");
         deleteSecret(name);
     }
 
@@ -97,12 +100,16 @@ bool SecretsHandler::storeData(const QString &name, const QString &data)
     ssr.startRequest();
     ssr.waitForFinished();
 
-    return isResultValid(ssr);
+    const auto result = isResultValid(ssr);
+    logger->debug("Creating secret " + name + "status: " + QString(result ? "true" : "false"));
+
+    return result;
 }
 
 Secret SecretsHandler::getSecret(const QString &name)
 {
     if (!hasCollection) {
+        logger->debug("Secret with name " + name + " not found");
         return Secret();
     }
 
@@ -115,6 +122,7 @@ Secret SecretsHandler::getSecret(const QString &name)
 
     auto success = isResultValid(ssr);
     if (!success) {
+        logger->warning("Failed to get secret with name " + name);
         return Secret();
     }
 
@@ -130,7 +138,11 @@ bool SecretsHandler::deleteSecret(const QString &name)
     dsr.startRequest();
     dsr.waitForFinished();
 
-    return isResultValid(dsr);
+    const auto result = isResultValid(dsr);
+
+    logger->debug("Deleting secret " + name + " result: " + QString(result ? "true" : "false"));
+
+    return result;
 }
 
 QString SecretsHandler::getData(const QString &name)
@@ -158,6 +170,8 @@ bool SecretsHandler::createCollection()
 
     auto success = isResultValid(ccr);
     hasCollection = success;
+
+    logger->debug("Creating collection status: " + QString(success ? "true" : "false"));
 
     return success;
 }

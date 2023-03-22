@@ -54,7 +54,9 @@ void ChatMessage::save(const QUuid &chatId)
     sql.bindValue(":author", m_author);
 
     if (!sql.exec()) {
-        qDebug() << "Failed to execute query: " << query << sql.lastError().text();
+        logger->warning("Failed to save chat message, query: " + query + ", error: " + sql.lastError().text());
+        qDebug() << "Failed to save chat message, query: " + query + ", error: " + sql.lastError().text();
+        return;
     }
 
     m_isNew = false;

@@ -7,6 +7,8 @@
 #include <QSqlError>
 #include <QSqlQuery>
 
+#include "logginghandler.h"
+
 DatabaseManager::DatabaseManager(QObject *parent) : QObject(parent)
 {
 
@@ -16,18 +18,23 @@ void DatabaseManager::createAndMigrate()
 {
     auto db = create();
     migrate(db);
+
+    LoggingHandler().debug("Migrations applied");
 }
 
 QSqlDatabase DatabaseManager::create()
 {
+    const LoggingHandler logger;
     QDir dbDir = QStandardPaths::writableLocation(QStandardPaths::StandardLocation::AppDataLocation);
     if (!dbDir.exists()) {
-        qDebug() << dbDir.mkdir(".");
+        dbDir.mkdir(".");
+        logger.debug("Database dir does not exist, creating it");
     }
     auto mainDb = QSqlDatabase::addDatabase("QSQLITE");
     mainDb.setDatabaseName(dbDir.path() + "/maindb.sqlite");
     if (!mainDb.open()) {
-        qDebug() << mainDb.lastError().text();
+        logger.error("There was an error when opening database:" + mainDb.lastError().text());
+        qFatal("%s", mainDb.lastError().text().toStdString().c_str());
     }
 
     return mainDb;
@@ -35,8 +42,11 @@ QSqlDatabase DatabaseManager::create()
 
 void DatabaseManager::migrate(QSqlDatabase database)
 {
+    const LoggingHandler logger;
+
     QSqlQuery createMigrationsTableQuery("CREATE TABLE IF NOT EXISTS migrations (version INT)", database);
     if (!createMigrationsTableQuery.exec()) {
+        logger.error("Failed to create migrations table");
         qFatal("Failed to create migrations table");
         return;
     }
@@ -49,6 +59,7 @@ void DatabaseManager::migrate(QSqlDatabase database)
                 !query.exec("CREATE TABLE chats (id TEXT NOT NULL PRIMARY KEY, createdDate TEXT, title TEXT)")
                 || !query.exec("CREATE TABLE chat_messages (id TEXT NOT NULL PRIMARY KEY, chat_id TEXT NOT NULL REFERENCES chats(id) ON DELETE CASCADE ON UPDATE CASCADE, message TEXT NOT NULL, messageDate TEXT NOT NULL, author INT NOT NULL)")
         ) {
+            logger.error("Failed to migrate to version 1");
             qFatal("Failed to migrate to version 1");
         }
 
@@ -59,10 +70,22 @@ void DatabaseManager::migrate(QSqlDatabase database)
     if (latestVersion == 1) {
         QSqlQuery query(database);
         if (!query.exec("CREATE TABLE settings (setting TEXT NOT NULL PRIMARY KEY, value TEXT)")) {
+            logger.error("Failed to migrate to version 2");
             qFatal("Failed to migrate to version 2");
         }
 
         applyMigration(2, database);
+        latestVersion = getLatestMigrationsVersion(database);
+    }
+
+    if (latestVersion == 2) {
+        QSqlQuery query(database);
+        if (!query.exec("CREATE TABLE logs (message TEXT, datetime TEXT, level INT)")) {
+            logger.error("Failed to migrate to version 3");
+            qFatal("Failed to migrate to version 3");
+        }
+
+        applyMigration(3, database);
         latestVersion = getLatestMigrationsVersion(database);
     }
 }

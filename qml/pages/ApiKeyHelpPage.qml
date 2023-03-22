@@ -33,6 +33,7 @@ Page {
                 color: Theme.primaryColor
                 wrapMode: Text.WordWrap
                 onLinkActivated: {
+                    logger.debug("Clicked on api keys link");
                     Qt.openUrlExternally(link);
                 }
             }
@@ -55,5 +56,9 @@ Page {
                 wrapMode: Text.WordWrap
             }
         }
+    }
+
+    Component.onCompleted: {
+        logger.debug("Navigated to ApiKeyHelpPage.qml");
     }
 }

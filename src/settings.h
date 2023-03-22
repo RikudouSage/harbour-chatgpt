@@ -14,6 +14,7 @@ class Settings : public QObject
     Q_PROPERTY(double topPercentage READ topPercentage WRITE setTopPercentage NOTIFY topPercentageChanged)
     Q_PROPERTY(double presencePenalty READ presencePenalty WRITE setPresencePenalty NOTIFY presencePenaltyChanged)
     Q_PROPERTY(double frequencyPenalty READ frequencyPenalty WRITE setFrequencyPenalty NOTIFY frequencyPenaltyChanged)
+    Q_PROPERTY(bool enableLogging READ enableLogging WRITE setEnableLogging NOTIFY enableLoggingChanged)
 public:
     explicit Settings(QObject *parent = nullptr);
 
@@ -27,6 +28,8 @@ public:
     void setPresencePenalty(double penalty);
     double frequencyPenalty();
     void setFrequencyPenalty(double penalty);
+    bool enableLogging();
+    void setEnableLogging(bool enable);
 
 signals:
     void conversationLengthChanged();
@@ -34,16 +37,19 @@ signals:
     void topPercentageChanged();
     void presencePenaltyChanged();
     void frequencyPenaltyChanged();
+    void enableLoggingChanged();
 
 private:
     void setSetting(const QString &name, QJsonValue value);
     void setSetting(const QString &name, int value);
     void setSetting(const QString &name, double value);
+    void setSetting(const QString &name, bool value);
 
     QJsonValue getSetting(const QString &name, QJsonValue defaultValue = QJsonValue());
     QString getStringSetting(const QString &name, const QString &defaultValue = "");
     int getIntSetting(const QString &name, const int &defaultValue = 0);
     double getDoubleSetting(const QString &name, const double &defaultValue = 0);
+    bool getBoolSetting(const QString &name, const bool &defaultValue = false);
 
     QString jsonValue(QJsonValue value);
     QJsonValue toJsonValue(const QString &value);

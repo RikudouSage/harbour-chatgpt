@@ -22,6 +22,8 @@ SOURCES += src/harbour-chatgpt.cpp \
     src/chatmessage.cpp \
     src/chatstorage.cpp \
     src/databasemanager.cpp \
+    src/logginghandler.cpp \
+    src/logsexporter.cpp \
     src/secretshandler.cpp \
     src/settings.cpp
 
@@ -34,6 +36,7 @@ DISTFILES += qml/harbour-chatgpt.qml \
     qml/pages/ConfirmSettingDialog.qml \
     qml/pages/InitialChecksPage.qml \
     qml/pages/LoginPage.qml \
+    qml/pages/LogsPage.qml \
     qml/pages/SettingsPage.qml \
     rpm/harbour-chatgpt.changes.in \
     rpm/harbour-chatgpt.changes.run.in \
@@ -56,6 +59,8 @@ HEADERS += \
     src/chatmessage.h \
     src/chatstorage.h \
     src/databasemanager.h \
+    src/logginghandler.h \
+    src/logsexporter.h \
     src/secretshandler.h \
     src/settings.h \
     src/uuidhelper.h

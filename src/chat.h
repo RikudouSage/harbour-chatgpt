@@ -8,6 +8,7 @@
 #include <QVariantList>
 
 #include "chatmessage.h"
+#include "logginghandler.h"
 
 class Chat : public QObject
 {
@@ -46,6 +47,8 @@ private:
     QSqlDatabase m_database;
     bool messagesInitialized = false;
     bool isNew;
+
+    const LoggingHandler *logger = new LoggingHandler(this);
 };
 
 #endif // CHAT_H
