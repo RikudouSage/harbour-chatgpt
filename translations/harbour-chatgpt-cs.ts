@@ -156,33 +156,33 @@
     <message>
         <location filename="../qml/pages/LogsPage.qml" line="19"/>
         <source>There was an error when trying to open the export file &apos;%1&apos; in your Documents folder for writing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastala chyba při pokusu o otevření souboru &apos;%1&apos; ve složce Documents pro zápis.</translation>
     </message>
     <message>
         <location filename="../qml/pages/LogsPage.qml" line="23"/>
         <source>Logs have been exported! You should find them in your Documents folder under the name &apos;%1&apos;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Logy byly exportovány! Naleznete je ve své složce Documents pod názvem &apos;%1&apos;.</translation>
     </message>
     <message>
         <location filename="../qml/pages/LogsPage.qml" line="42"/>
         <source>Delete logs</source>
-        <translation type="unfinished"></translation>
+        <translation>Smazat logy</translation>
     </message>
     <message>
         <location filename="../qml/pages/LogsPage.qml" line="50"/>
         <source>Export to file</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportovat do souboru</translation>
     </message>
     <message>
         <location filename="../qml/pages/LogsPage.qml" line="64"/>
         <source>Logs</source>
         <extracomment>Page title</extracomment>
-        <translation type="unfinished">Logy</translation>
+        <translation>Logy</translation>
     </message>
     <message>
         <location filename="../qml/pages/LogsPage.qml" line="91"/>
         <source>There are no logs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Neexistují žádné logy.</translation>
     </message>
 </context>
 <context>
