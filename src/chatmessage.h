@@ -18,6 +18,7 @@ public:
     enum Author {
         User,
         ChatGPT,
+        System,
     };
     Q_ENUM(Author)
 

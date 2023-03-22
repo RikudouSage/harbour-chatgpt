@@ -17,6 +17,10 @@ Dialog {
     property string sliderDescription: ''
     property alias sliderValue: sliderField.value
 
+    property alias stringFieldVisible: stringField.visible
+    property alias stringFieldDescription: stringField.label
+    property alias stringFieldValue: stringField.text
+
     canAccept: (intFieldVisible ? intValue.length > 0 : true)
 
     id: page
@@ -53,6 +57,11 @@ Dialog {
             TextField {
                 id: intField
                 inputMethodHints: Qt.ImhDigitsOnly
+                visible: false
+            }
+
+            TextField {
+                id: stringField
                 visible: false
             }
 

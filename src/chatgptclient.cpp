@@ -66,7 +66,7 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
     for (const auto messageQObject : chat->messages().mid(chat->messages().size() - settings->conversationLength())) {
         const auto message = static_cast<ChatMessage*>(messageQObject);
         QJsonObject messageBody;
-        messageBody["role"] = message->author() == ChatMessage::Author::User ? "user" : "assistant";
+        messageBody["role"] = message->author() == ChatMessage::Author::User ? "user" : (message->author() == ChatMessage::Author::ChatGPT ? "assistant" : "system");
         messageBody["content"] = message->message();
         messages.append(messageBody);
     }
