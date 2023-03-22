@@ -22,6 +22,7 @@ SOURCES += src/harbour-chatgpt.cpp \
     src/chatmessage.cpp \
     src/chatstorage.cpp \
     src/databasemanager.cpp \
+    src/logginghandler.cpp \
     src/secretshandler.cpp \
     src/settings.cpp
 
@@ -56,6 +57,7 @@ HEADERS += \
     src/chatmessage.h \
     src/chatstorage.h \
     src/databasemanager.h \
+    src/logginghandler.h \
     src/secretshandler.h \
     src/settings.h \
     src/uuidhelper.h

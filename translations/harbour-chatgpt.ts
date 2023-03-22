@@ -79,6 +79,10 @@
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Logs</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConfirmSettingDialog</name>
@@ -217,6 +221,32 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <source>Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model&apos;s likelihood to repeat the same line verbatim.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable logging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have problems with the app, enable this option to collect logs which you can then send to the developer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You need to restart the app for the logging to take full effect.</source>
+        <extracomment>Full effect here means that the setting will not propagate to all parts of the app so some parts will not collect logs until restart</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This will disable log collection, you should restart the app afterwards so it takes full effect.</source>
+        <extracomment>Full effect here means that the setting will not propagate to all parts of the app so some parts will still collect logs</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After disabling logging all previous logs will be deleted to save space.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have not exported the logs anywhere you should do so before disabling logging.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

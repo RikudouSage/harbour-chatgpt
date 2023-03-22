@@ -81,6 +81,19 @@ void Settings::setFrequencyPenalty(double penalty)
     }
 }
 
+bool Settings::enableLogging()
+{
+    return getBoolSetting("enableLogging");
+}
+
+void Settings::setEnableLogging(bool enable)
+{
+    if (enable != enableLogging()) {
+        setSetting("enableLogging", enable);
+        emit enableLoggingChanged();
+    }
+}
+
 void Settings::setSetting(const QString &name, QJsonValue value)
 {
     QSqlQuery existing(database);
@@ -116,6 +129,11 @@ void Settings::setSetting(const QString &name, double value)
     setSetting(name, QJsonValue(value));
 }
 
+void Settings::setSetting(const QString &name, bool value)
+{
+    setSetting(name, QJsonValue(value));
+}
+
 QJsonValue Settings::getSetting(const QString &name, QJsonValue defaultValue)
 {
     QSqlQuery existing(database);
@@ -146,6 +164,11 @@ int Settings::getIntSetting(const QString &name, const int &defaultValue)
 double Settings::getDoubleSetting(const QString &name, const double &defaultValue)
 {
     return getSetting(name, QJsonValue(defaultValue)).toDouble();
+}
+
+bool Settings::getBoolSetting(const QString &name, const bool &defaultValue)
+{
+    return getSetting(name, QJsonValue(defaultValue)).toBool();
 }
 
 QString Settings::jsonValue(QJsonValue value)

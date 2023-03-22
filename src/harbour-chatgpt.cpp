@@ -17,6 +17,7 @@
 #include "databasemanager.h"
 #include "chatmessage.h"
 #include "settings.h"
+#include "logginghandler.h"
 
 int main(int argc, char *argv[])
 {
@@ -25,10 +26,22 @@ int main(int argc, char *argv[])
 
     DatabaseManager::createAndMigrate();
 
+    const auto loggingHandler = new LoggingHandler(app.data());
+    loggingHandler->debug("App started");
+
+    v->rootContext()->setContextProperty("logger", loggingHandler);
+    v->rootContext()->setContextProperty("settings", new Settings(app.data()));
+
+#ifdef QT_DEBUG
+   v->rootContext()->setContextProperty("isDebug", true);
+#else
+   v->rootContext()->setContextProperty("isDebug", false);
+#endif
+
     qmlRegisterType<SecretsHandler>("cz.chrastecky.chatgpt", 1, 0, "SecretsHandler");
     qmlRegisterType<ChatGptClient>("cz.chrastecky.chatgpt", 1, 0, "ChatGptClient");
     qmlRegisterType<ChatStorage>("cz.chrastecky.chatgpt", 1, 0, "ChatStorage");
-    qmlRegisterType<Settings>("cz.chrastecky.chatgpt", 1, 0, "Settings");
+
     qmlRegisterUncreatableType<ChatMessage>("cz.chrastecky.chatgpt", 1, 0, "ChatMessage", "Uncreatable");
 
     v->setSource(SailfishApp::pathToMainQml());

@@ -6,6 +6,8 @@
 #include <QUuid>
 #include <QSqlDatabase>
 
+#include "logginghandler.h"
+
 class ChatMessage : public QObject
 {
     Q_OBJECT
@@ -35,6 +37,7 @@ private:
 
     bool m_isNew = false;
     QSqlDatabase database = QSqlDatabase::database();
+    const LoggingHandler *logger = new LoggingHandler(this);
 };
 
 #endif // CHATMESSAGE_H

@@ -79,4 +79,8 @@ Dialog {
     onRejected: {
         Qt.quit();
     }
+
+    Component.onCompleted: {
+        logger.debug("Navigated to LoginPage.qml");
+    }
 }

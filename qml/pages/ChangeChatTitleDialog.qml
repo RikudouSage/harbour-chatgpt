@@ -30,4 +30,8 @@ Dialog {
             }
         }
     }
+
+    Component.onCompleted: {
+        logger.debug("Navigated to ChangeChatTitleDialog.qml");
+    }
 }

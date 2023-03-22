@@ -47,7 +47,12 @@ QList<QObject*> Chat::messages()
         QSqlQuery query(m_database);
         query.prepare("SELECT * FROM chat_messages WHERE chat_id = :chatId ORDER BY messageDate ASC");
         query.bindValue(":chatId", uuidToString(m_id));
-        query.exec();
+        if (!query.exec()) {
+            logger->warning("Failed to execute query: " + query.lastError().text());
+            qWarning() << "Failed to execute query: " + query.lastError().text();
+
+            return m_messages;
+        }
         while (query.next()) {
             appendMessage(
                 QUuid(query.value("id").toString()),
@@ -112,7 +117,9 @@ void Chat::save()
     sql.bindValue(":title", m_title);
 
     if (!sql.exec()) {
-        qDebug() << "Failed to exec query: " << query << sql.lastError().text();
+        logger->error("Failed to save chat, query: " + query + ", error: " + sql.lastError().text());
+        qCritical() << "Failed to save chat, query: " + query + ", error: " + sql.lastError().text();
+        return;
     }
 
     for (const auto message : messages()) {

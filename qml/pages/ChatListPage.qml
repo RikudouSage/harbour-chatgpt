@@ -19,6 +19,11 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                visible: settings.enableLogging
+                text: qsTr("Logs")
+            }
+
+            MenuItem {
                 text: qsTr("Settings")
                 onClicked: {
                     pageStack.push("SettingsPage.qml");
@@ -58,9 +63,11 @@ Page {
                     }
 
                     function remove() {
+                        logger.debug("Deleting chat with id " + item.id);
                         remorseDelete(function() {
                             chatStorage.removeChat(item.id);
                             chats = chatStorage.getChats();
+                            logger.debug("Chat with id " + item.id + " deleted");
                         });
                     }
 
@@ -126,5 +133,6 @@ Page {
 
     Component.onCompleted: {
         chats = chatStorage.getChats();
+        logger.debug("Navigated to ChatListPage.qml");
     }
 }

@@ -6,6 +6,7 @@
 #include <QList>
 
 #include "chat.h"
+#include "logginghandler.h"
 
 class ChatStorage : public QObject
 {
@@ -19,6 +20,7 @@ public:
 
 private:
     QSqlDatabase database;
+    const LoggingHandler *logger = new LoggingHandler(this);
 };
 
 #endif // CHATSTORAGE_H

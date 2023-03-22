@@ -26,7 +26,6 @@ Page {
 
         onApiKeyChecked: {
             if (isValid) {
-                console.log(apiKey);
                 secrets.setApiKey(apiKey);
                 doAfterLoadOrNow(function() {
                     pageStack.replace("ChatListPage.qml");
@@ -82,5 +81,7 @@ Page {
                 });
             }
         });
+
+        logger.debug("Navigated to InitialChecksPage.qml");
     }
 }

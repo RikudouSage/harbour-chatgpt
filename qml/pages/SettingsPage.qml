@@ -7,10 +7,6 @@ Page {
     id: page
     allowedOrientations: Orientation.All
 
-    Settings {
-        id: settings
-    }
-
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height
@@ -23,6 +19,40 @@ Page {
             PageHeader {
                 //: Page title
                 title: qsTr("Settings")
+            }
+
+            TextSwitch {
+                text: qsTr("Enable logging")
+                checked: settings.enableLogging
+                automaticCheck: false
+
+                onClicked: {
+                    if (checked) {
+                        const dialog = pageStack.push("ConfirmSettingDialog.qml", {
+                            messages: [
+                                //: Full effect here means that the setting will not propagate to all parts of the app so some parts will still collect logs
+                                qsTr("This will disable log collection, you should restart the app afterwards so it takes full effect."),
+                                "<strong>" + qsTr("After disabling logging all previous logs will be deleted to save space.") + "</strong>",
+                                "<strong>" + qsTr("If you have not exported the logs anywhere you should do so before disabling logging.") + "</strong>",
+                            ]
+                        });
+                        dialog.accepted.connect(function() {
+                            settings.enableLogging = false;
+                            logger.deleteLogs();
+                        });
+                    } else {
+                        const dialog = pageStack.push("ConfirmSettingDialog.qml", {
+                            messages: [
+                                qsTr("If you have problems with the app, enable this option to collect logs which you can then send to the developer."),
+                                //: Full effect here means that the setting will not propagate to all parts of the app so some parts will not collect logs until restart
+                                "<strong>" + qsTr("You need to restart the app for the logging to take full effect.") + "</strong>",
+                            ]
+                        });
+                        dialog.accepted.connect(function() {
+                            settings.enableLogging = true;
+                        });
+                    }
+                }
             }
 
             TextSwitch {
@@ -161,5 +191,9 @@ Page {
                 }
             }
         }
+    }
+
+    Component.onCompleted: {
+        logger.debug("Navigated to SettingsPage.qml");
     }
 }
