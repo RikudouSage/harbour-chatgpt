@@ -200,7 +200,7 @@ Page {
                     const dialog = pageStack.push("ConfirmSettingDialog.qml", {
                         messages: [
                             qsTr("You can set a system message that is sent as an instruction to GPT before each chat begins."),
-                            qsTr("For example you can write 'You are a helpful assistent' and the AI should try to follow your instructions."),
+                            qsTr("For example you can write 'You are a helpful assistant' and the AI should try to follow your instructions."),
                             qsTr("Note: The current version of GPT doesn't pay strong attention to the system message, it should be mitigated when the model is updated."),
                             //: The %1 gets replaced by the translation for 'Conversation length'
                             qsTr("Note: The system message counts towards your '%1' limit.").arg(qsTr('Conversation length')),

@@ -290,10 +290,6 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>For example you can write &apos;You are a helpful assistent&apos; and the AI should try to follow your instructions.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Note: The current version of GPT doesn&apos;t pay strong attention to the system message, it should be mitigated when the model is updated.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -304,6 +300,10 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <source>Conversation length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For example you can write &apos;You are a helpful assistant&apos; and the AI should try to follow your instructions.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -338,7 +338,7 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="203"/>
-        <source>For example you can write &apos;You are a helpful assistent&apos; and the AI should try to follow your instructions.</source>
+        <source>For example you can write &apos;You are a helpful assistant&apos; and the AI should try to follow your instructions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
