@@ -71,7 +71,7 @@
     <message>
         <location filename="../qml/pages/ChatListPage.qml" line="23"/>
         <source>Logs</source>
-        <translation type="unfinished"></translation>
+        <translation>Logy</translation>
     </message>
     <message>
         <location filename="../qml/pages/ChatListPage.qml" line="27"/>
@@ -162,34 +162,34 @@
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="25"/>
         <source>Enable logging</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolit logování</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="34"/>
         <source>This will disable log collection, you should restart the app afterwards so it takes full effect.</source>
         <extracomment>Full effect here means that the setting will not propagate to all parts of the app so some parts will still collect logs</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tato možnost vypne sbírání logů, měli byste restartovat aplikaci, aby se změna plně projevila.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="35"/>
         <source>After disabling logging all previous logs will be deleted to save space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Po vypnutí logování budou všechny předchozí logy smazány, aby se šetřilo místo.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="36"/>
         <source>If you have not exported the logs anywhere you should do so before disabling logging.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud jste logy zatím neexportovali, měli byste tak udělat, než vypnete logování.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="46"/>
         <source>If you have problems with the app, enable this option to collect logs which you can then send to the developer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud vám v aplikaci něco nefunguje, zapněte tuto možnost pro sbírání logů, které pak můžete zaslat vývojáři.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="48"/>
         <source>You need to restart the app for the logging to take full effect.</source>
         <extracomment>Full effect here means that the setting will not propagate to all parts of the app so some parts will not collect logs until restart</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Aby se změna plně projevila, musíte restartovat aplikaci.</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="59"/>
