@@ -18,6 +18,7 @@
 #include "chatmessage.h"
 #include "settings.h"
 #include "logginghandler.h"
+#include "logsexporter.h"
 
 int main(int argc, char *argv[])
 {
@@ -41,8 +42,10 @@ int main(int argc, char *argv[])
     qmlRegisterType<SecretsHandler>("cz.chrastecky.chatgpt", 1, 0, "SecretsHandler");
     qmlRegisterType<ChatGptClient>("cz.chrastecky.chatgpt", 1, 0, "ChatGptClient");
     qmlRegisterType<ChatStorage>("cz.chrastecky.chatgpt", 1, 0, "ChatStorage");
+    qmlRegisterType<LogsExporter>("cz.chrastecky.logs", 1, 0, "LogsExporter");
 
     qmlRegisterUncreatableType<ChatMessage>("cz.chrastecky.chatgpt", 1, 0, "ChatMessage", "Uncreatable");
+    qmlRegisterUncreatableType<LoggingHandler>("cz.chrastecky.chatgpt", 1, 0, "LogLevel", "Uncreatable"); // only register it to get access to enum constants
 
     v->setSource(SailfishApp::pathToMainQml());
     v->show();

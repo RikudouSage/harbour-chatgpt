@@ -74,28 +74,28 @@
         <translation>Logy</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ChatListPage.qml" line="27"/>
+        <location filename="../qml/pages/ChatListPage.qml" line="30"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ChatListPage.qml" line="34"/>
+        <location filename="../qml/pages/ChatListPage.qml" line="37"/>
         <source>New chat</source>
         <translation>Nový chat</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ChatListPage.qml" line="48"/>
+        <location filename="../qml/pages/ChatListPage.qml" line="51"/>
         <source>Chat list</source>
         <extracomment>Page title</extracomment>
         <translation>Seznam chatů</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ChatListPage.qml" line="106"/>
+        <location filename="../qml/pages/ChatListPage.qml" line="109"/>
         <source>Remove</source>
         <translation>Odstranit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ChatListPage.qml" line="119"/>
+        <location filename="../qml/pages/ChatListPage.qml" line="122"/>
         <source>There are no chats, use pull down menu to create one.</source>
         <translation>Nemáte žádné chaty, použijte vysouvací menu a vytvořte jeden.</translation>
     </message>
@@ -149,6 +149,40 @@
         <location filename="../qml/pages/LoginPage.qml" line="56"/>
         <source>Api key</source>
         <translation>Api klíč</translation>
+    </message>
+</context>
+<context>
+    <name>LogsPage</name>
+    <message>
+        <location filename="../qml/pages/LogsPage.qml" line="19"/>
+        <source>There was an error when trying to open the export file &apos;%1&apos; in your Documents folder for writing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LogsPage.qml" line="23"/>
+        <source>Logs have been exported! You should find them in your Documents folder under the name &apos;%1&apos;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LogsPage.qml" line="42"/>
+        <source>Delete logs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LogsPage.qml" line="50"/>
+        <source>Export to file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LogsPage.qml" line="64"/>
+        <source>Logs</source>
+        <extracomment>Page title</extracomment>
+        <translation type="unfinished">Logy</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LogsPage.qml" line="91"/>
+        <source>There are no logs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

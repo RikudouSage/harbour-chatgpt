@@ -128,6 +128,34 @@
     </message>
 </context>
 <context>
+    <name>LogsPage</name>
+    <message>
+        <source>Logs</source>
+        <extracomment>Page title</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete logs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export to file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There are no logs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There was an error when trying to open the export file &apos;%1&apos; in your Documents folder for writing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logs have been exported! You should find them in your Documents folder under the name &apos;%1&apos;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>

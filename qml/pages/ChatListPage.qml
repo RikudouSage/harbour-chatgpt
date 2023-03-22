@@ -21,6 +21,9 @@ Page {
             MenuItem {
                 visible: settings.enableLogging
                 text: qsTr("Logs")
+                onClicked: {
+                    pageStack.push("LogsPage.qml");
+                }
             }
 
             MenuItem {
