@@ -3,9 +3,9 @@ Name:       harbour-chatgpt
 %define _binary_payload w2.xzdio
 
 Summary:    ChatGPT
-Version:    0.9.4
+Version:    0.9.5
 Release:    1
-License:    LICENSE
+License:    MIT
 URL:        https://openrepos.net/content/rikudousennin/chatgpt
 Source0:    %{name}-%{version}.tar.bz2
 Requires:   sailfishsilica-qt5 >= 0.10.9
