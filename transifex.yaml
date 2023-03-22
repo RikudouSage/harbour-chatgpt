@@ -1,9 +1,9 @@
 git:
   filters:
     - filter_type: file
-      source_file: translations/harbour-bitsailor.ts
+      source_file: translations/harbour-chatgpt.ts
       file_format: QT
       source_language: en
-      translation_files_expression: translations/harbour-bitsailor-<lang>.ts
+      translation_files_expression: translations/harbour-chatgpt-<lang>.ts
   settings:
     pr_branch_name: transifex_update_<br_unique_id>
