@@ -15,6 +15,7 @@ class Settings : public QObject
     Q_PROPERTY(double presencePenalty READ presencePenalty WRITE setPresencePenalty NOTIFY presencePenaltyChanged)
     Q_PROPERTY(double frequencyPenalty READ frequencyPenalty WRITE setFrequencyPenalty NOTIFY frequencyPenaltyChanged)
     Q_PROPERTY(bool enableLogging READ enableLogging WRITE setEnableLogging NOTIFY enableLoggingChanged)
+    Q_PROPERTY(QString systemMessage READ systemMessage WRITE setSystemMessage NOTIFY systemMessageChanged)
 public:
     explicit Settings(QObject *parent = nullptr);
 
@@ -30,6 +31,8 @@ public:
     void setFrequencyPenalty(double penalty);
     bool enableLogging();
     void setEnableLogging(bool enable);
+    QString systemMessage();
+    void setSystemMessage(const QString &message);
 
 signals:
     void conversationLengthChanged();
@@ -38,6 +41,7 @@ signals:
     void presencePenaltyChanged();
     void frequencyPenaltyChanged();
     void enableLoggingChanged();
+    void systemMessageChanged();
 
 private:
     void setSetting(const QString &name, QJsonValue value);

@@ -281,5 +281,30 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
         <source>If you have not exported the logs anywhere you should do so before disabling logging.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Custom system message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can set a system message that is sent as an instruction to GPT before each chat begins.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For example you can write &apos;You are a helpful assistent&apos; and the AI should try to follow your instructions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Note: The current version of GPT doesn&apos;t pay strong attention to the system message, it should be mitigated when the model is updated.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Note: The system message counts towards your &apos;%1&apos; limit.</source>
+        <extracomment>The %1 gets replaced by the translation for &apos;Conversation length&apos;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation length</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

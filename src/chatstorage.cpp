@@ -33,7 +33,14 @@ QList<QObject*> ChatStorage::getChats()
 
 QObject *ChatStorage::newChat()
 {
-    return new Chat(this);
+    auto chat = new Chat(this);
+
+    const auto systemMessage = settings->systemMessage();
+    if (!systemMessage.isEmpty()) {
+        chat->appendMessage(systemMessage, ChatMessage::Author::System);
+    }
+
+    return chat;
 }
 
 void ChatStorage::removeChat(const QUuid &id)

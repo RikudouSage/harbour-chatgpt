@@ -72,7 +72,7 @@ Page {
 
             Repeater {
                 id: repeater
-                property var messages: chat.messages
+                property var messages: chat.messages.filter(function(item) { return item.author !== ChatMessage.System })
                 model: messages
 
                 delegate: ListItem {

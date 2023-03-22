@@ -103,7 +103,7 @@
 <context>
     <name>ConfirmSettingDialog</name>
     <message>
-        <location filename="../qml/pages/ConfirmSettingDialog.qml" line="36"/>
+        <location filename="../qml/pages/ConfirmSettingDialog.qml" line="40"/>
         <source>Confirm</source>
         <extracomment>Dialog accept text</extracomment>
         <translation>Potvrdit</translation>
@@ -324,6 +324,38 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
         <location filename="../qml/pages/SettingsPage.qml" line="176"/>
         <source>Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model&apos;s likelihood to repeat the same line verbatim.</source>
         <translation>Pozitivní hodnota penalizuje nové tokeny na základě jejich frekvence v textu, snižuje tak šanci modelu, že zopakuje několikrát stejnou věc.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="195"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="209"/>
+        <source>Custom system message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="202"/>
+        <source>You can set a system message that is sent as an instruction to GPT before each chat begins.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="203"/>
+        <source>For example you can write &apos;You are a helpful assistent&apos; and the AI should try to follow your instructions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="204"/>
+        <source>Note: The current version of GPT doesn&apos;t pay strong attention to the system message, it should be mitigated when the model is updated.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="206"/>
+        <source>Note: The system message counts towards your &apos;%1&apos; limit.</source>
+        <extracomment>The %1 gets replaced by the translation for &apos;Conversation length&apos;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="206"/>
+        <source>Conversation length</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="91"/>

@@ -94,6 +94,19 @@ void Settings::setEnableLogging(bool enable)
     }
 }
 
+QString Settings::systemMessage()
+{
+    return getStringSetting("systemMessage");
+}
+
+void Settings::setSystemMessage(const QString &message)
+{
+    if (message != systemMessage()) {
+        setSetting("systemMessage", message);
+        emit systemMessageChanged();
+    }
+}
+
 void Settings::setSetting(const QString &name, QJsonValue value)
 {
     QSqlQuery existing(database);
@@ -204,7 +217,7 @@ QString Settings::jsonValue(QJsonValue value)
 QJsonValue Settings::toJsonValue(const QString &value)
 {
     if (value.size() >= 2 && value.at(0) == QString("\"") && value.at(value.size() - 1) == QString("\"")) {
-        return QJsonValue(value.mid(1, value.size() - 1));
+        return QJsonValue(value.mid(1, value.size() - 2));
     }
     if (QRegExp("[0-9-]+").exactMatch(value)) {
         return QJsonValue(value.toInt());
