@@ -9,8 +9,8 @@ Page {
     allowedOrientations: Orientation.All
 
     property string error: ''
-    property string success: ''
     property var logs: []
+    property string exportBasename
 
     LogsExporter {
         id: exporter
@@ -20,7 +20,8 @@ Page {
         }
 
         onExportFinished: {
-            success = qsTr("Logs have been exported! You should find them in your Documents folder under the name '%1'.").arg(basename);
+            exportBasename = basename;
+            exportSuccessMessage.visible = true;
         }
     }
 
@@ -65,13 +66,17 @@ Page {
             }
 
             Label {
+                id: exportSuccessMessage
                 x: Theme.horizontalPageMargin
                 textFormat: Text.RichText;
                 width: parent.width - Theme.horizontalPageMargin * 2
-                text: success
+                text: "<style>a {color: " + Theme.highlightColor + "}</style>" + qsTr("Logs have been exported! You should find them in your Documents folder under the name '%1'.").arg(exportBasename) + "<br><br>" + qsTr("Click <a href='%2'>here</a> to contact the developer via email.").arg('mailto:dominik@chrastecky.cz');
                 color: Theme.highlightColor
                 wrapMode: Text.WordWrap
-                visible: success
+                visible: false
+                onLinkActivated: {
+                    Qt.openUrlExternally(link);
+                }
             }
 
             Label {

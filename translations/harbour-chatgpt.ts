@@ -154,6 +154,10 @@
         <source>Logs have been exported! You should find them in your Documents folder under the name &apos;%1&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Click &lt;a href=&apos;%2&apos;&gt;here&lt;/a&gt; to contact the developer via email.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsPage</name>

@@ -159,28 +159,33 @@
         <translation>Nastala chyba při pokusu o otevření souboru &apos;%1&apos; ve složce Documents pro zápis.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/LogsPage.qml" line="23"/>
-        <source>Logs have been exported! You should find them in your Documents folder under the name &apos;%1&apos;.</source>
-        <translation>Logy byly exportovány! Naleznete je ve své složce Documents pod názvem &apos;%1&apos;.</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LogsPage.qml" line="42"/>
+        <location filename="../qml/pages/LogsPage.qml" line="43"/>
         <source>Delete logs</source>
         <translation>Smazat logy</translation>
     </message>
     <message>
-        <location filename="../qml/pages/LogsPage.qml" line="50"/>
+        <location filename="../qml/pages/LogsPage.qml" line="51"/>
         <source>Export to file</source>
         <translation>Exportovat do souboru</translation>
     </message>
     <message>
-        <location filename="../qml/pages/LogsPage.qml" line="64"/>
+        <location filename="../qml/pages/LogsPage.qml" line="65"/>
         <source>Logs</source>
         <extracomment>Page title</extracomment>
         <translation>Logy</translation>
     </message>
     <message>
-        <location filename="../qml/pages/LogsPage.qml" line="91"/>
+        <location filename="../qml/pages/LogsPage.qml" line="73"/>
+        <source>Logs have been exported! You should find them in your Documents folder under the name &apos;%1&apos;.</source>
+        <translation>Logy byly exportovány! Naleznete je ve složce Documents pod názvem &apos;%1&apos;.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LogsPage.qml" line="73"/>
+        <source>Click &lt;a href=&apos;%2&apos;&gt;here&lt;/a&gt; to contact the developer via email.</source>
+        <translation>Klikněte &lt;a href=&apos;%2&apos;&gt;sem&lt;/a&gt; pro kontaktování vývojáře pomocí e-mailu.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LogsPage.qml" line="96"/>
         <source>There are no logs.</source>
         <translation>Neexistují žádné logy.</translation>
     </message>
