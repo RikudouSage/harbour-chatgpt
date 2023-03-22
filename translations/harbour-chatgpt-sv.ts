@@ -152,72 +152,72 @@
     </message>
     <message>
         <source>What sampling temperature to use.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vilken samplingstemperatur som skall användas.</translation>
     </message>
     <message>
         <source>Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.</source>
-        <translation type="unfinished"></translation>
+        <translation>Högre värden som 0.8 kommer att göra utdata mer slumpmässiga, medan lägre värden som 0.2 kommer att göra det mer fokuserat och deterministiskt.</translation>
     </message>
     <message>
         <source>It&apos;s generally recommended to alter this setting or top percentage, but not both.</source>
-        <translation type="unfinished"></translation>
+        <translation>Det rekommenderas vanligtvis att ändra den här inställningen eller topprocenten, men inte båda.</translation>
     </message>
     <message>
         <source>Sampling temperature: %1</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature to understand what the temperature here means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Samplingstemperatur: %1</translation>
     </message>
     <message>
         <source>Sampling temperature</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature to understand what the temperature here means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Samplingstemperatur</translation>
     </message>
     <message>
         <source>Top percentage: %1</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-top_p to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Topprocentsats: %1</translation>
     </message>
     <message>
         <source>An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top percentage probability mass.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ett alternativ till sampling med temperatur, kallad nucleus-sampling, där modellen tar hänsyn till resultaten av token med högsta procentuella sannolikhetsmassa.</translation>
     </message>
     <message>
         <source>So 0.1 means only the tokens comprising the top 10% probability mass are considered.</source>
-        <translation type="unfinished"></translation>
+        <translation>Så 0.1 betyder att endast de token som består av de översta 10% sannolikhetsmassa beaktas.</translation>
     </message>
     <message>
         <source>It&apos;s generally recommended to alter this setting or sampling temperature, but not both.</source>
-        <translation type="unfinished"></translation>
+        <translation>Det rekommenderas vanligtvis att du ändrar den här inställningen eller samplingstemperaturen, men inte båda.</translation>
     </message>
     <message>
         <source>Top percentage</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-top_p to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Topprocentsats</translation>
     </message>
     <message>
         <source>Presence penalty: %1</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-presence_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Presence penalty: %1</translation>
     </message>
     <message>
         <source>Positive values penalize new tokens based on whether they appear in the text so far, increasing the model&apos;s likelihood to talk about new topics.</source>
-        <translation type="unfinished"></translation>
+        <translation>Positiva värden straffar nya token baserat på om de förekommer i texten hittills, vilket ökar modellens sannolikhet att prata om nya ämnen.</translation>
     </message>
     <message>
         <source>Presence penalty</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-presence_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.
 ----------
 Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-frequency_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Presence penalty</translation>
     </message>
     <message>
         <source>Frequency penalty: %1</source>
         <extracomment>Read the description at https://platform.openai.com/docs/api-reference/chat/create#chat/create-frequency_penalty to understand what it means. I recommend keeping it untranslated if the translation is not used in the AI community in your language.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Frequency penalty: %1</translation>
     </message>
     <message>
         <source>Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model&apos;s likelihood to repeat the same line verbatim.</source>
-        <translation type="unfinished"></translation>
+        <translation>Positiva värden straffar nya token baserat på deras befintliga frekvens i texten hittills, vilket minskar modellens sannolikhet att upprepa samma rad ordagrant.</translation>
     </message>
 </context>
 </TS>
