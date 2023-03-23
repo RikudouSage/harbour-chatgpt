@@ -77,9 +77,14 @@ Page {
 
                 delegate: ListItem {
                     property var item: repeater.messages[index]
+
                     width: column.width * 0.7
                     Layout.alignment: item.author === ChatMessage.User ? Qt.AlignRight : Qt.AlignLeft
                     contentHeight: message.height + Theme.paddingSmall * 2
+
+                    onClicked: {
+                        Clipboard.text = message.text;
+                    }
 
                     Rectangle {
                         color: Theme.highlightBackgroundColor
