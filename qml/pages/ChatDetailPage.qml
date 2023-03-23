@@ -10,6 +10,7 @@ Page {
 
     property var chat: null
     property string messageInProgress: ''
+    property bool chatIndicatorVisible: false
 
     ChatStorage {
         id: chatStorage
@@ -20,6 +21,8 @@ Page {
 
         onMessageSent: {
             chatPrompt.enabled = false;
+            chatIndicatorField.text = '.';
+            chatIndicatorVisible = true;
         }
 
         onMessageFinished: {
@@ -31,6 +34,7 @@ Page {
         }
 
         onChunkReceived: {
+            chatIndicatorVisible = false;
             messageInProgress += chunk;
             flickable.scrollToBottom();
         }
@@ -121,6 +125,48 @@ Page {
                     color: Theme.primaryColor
                 }
             }
+
+            ListItem {
+                width: column.width * 0.7
+                Layout.alignment: Qt.AlignLeft
+                contentHeight: chatIndicatorField.height + Theme.paddingSmall * 2
+                visible: chatIndicatorVisible
+
+                Rectangle {
+                    color: Theme.highlightBackgroundColor
+                    opacity: Theme.highlightBackgroundOpacity
+                    anchors.fill: parent
+                }
+
+                Label {
+                    id: chatIndicatorField
+                    width: parent.width - Theme.paddingSmall * 2
+                    wrapMode: Text.WordWrap
+                    x: Theme.paddingSmall
+                    y: Theme.paddingSmall
+                    text: ''
+                    color: Theme.primaryColor
+                }
+            }
+        }
+    }
+
+    Timer {
+        readonly property int max: 5
+        running: chatIndicatorVisible
+        interval: 1000
+        repeat: true
+
+        onTriggered: {
+            if (chatIndicatorField.text === '') {
+                chatIndicatorField.text = '.';
+                return;
+            }
+            if (chatIndicatorField.text.length === max) {
+                chatIndicatorField.text = '.';
+                return;
+            }
+            chatIndicatorField.text += '.';
         }
     }
 
