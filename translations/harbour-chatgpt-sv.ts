@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sv">
 <context>
     <name>ApiKeyHelpPage</name>
     <message>
@@ -85,7 +83,7 @@
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Byt namn</translation>
     </message>
 </context>
 <context>
@@ -299,7 +297,7 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <source>Note: The system message counts towards your &apos;%1&apos; limit.</source>
-        <extracomment>The %1 gets replaced by the translation for &apos;Conversation length&apos;</extracomment>
+        <extracomment>The %1 gets replaced by the translation for 'Conversation length'</extracomment>
         <translation>Notera att systemmeddelandet räknas in i din gräns på &quot;%1&quot; meddelanden.</translation>
     </message>
     <message>
