@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sv">
 <context>
     <name>ApiKeyHelpPage</name>
     <message>
@@ -81,7 +79,7 @@
     </message>
     <message>
         <source>Logs</source>
-        <translation type="unfinished"></translation>
+        <translation>Loggar</translation>
     </message>
 </context>
 <context>
@@ -132,31 +130,31 @@
     <message>
         <source>Logs</source>
         <extracomment>Page title</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Logg</translation>
     </message>
     <message>
         <source>Delete logs</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort loggen</translation>
     </message>
     <message>
         <source>Export to file</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportera till fil</translation>
     </message>
     <message>
         <source>There are no logs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Det finns ingen logg.</translation>
     </message>
     <message>
         <source>There was an error when trying to open the export file &apos;%1&apos; in your Documents folder for writing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Det uppstod ett fel när exportfilen &quot;%1&quot; skulle öppnas för skrivning, i mappen Dokument.</translation>
     </message>
     <message>
         <source>Logs have been exported! You should find them in your Documents folder under the name &apos;%1&apos;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Loggen har exporterats! Du bör hitta den i mappen Dokument under namnet &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>Click &lt;a href=&apos;%2&apos;&gt;here&lt;/a&gt; to contact the developer via email.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tryck &lt;a href=&apos;%2&apos;&gt;här&lt;/a&gt; för att kontakta utvecklaren via e-post.</translation>
     </message>
 </context>
 <context>
@@ -257,54 +255,54 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <source>Enable logging</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivera loggning</translation>
     </message>
     <message>
         <source>If you have problems with the app, enable this option to collect logs which you can then send to the developer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Om du har problem med appen aktiverar du det här alternativet för att samla in loggar som du sedan kan skicka till utvecklaren.</translation>
     </message>
     <message>
         <source>You need to restart the app for the logging to take full effect.</source>
         <extracomment>Full effect here means that the setting will not propagate to all parts of the app so some parts will not collect logs until restart</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Du måste starta om appen för att loggningen skall starta.</translation>
     </message>
     <message>
         <source>This will disable log collection, you should restart the app afterwards so it takes full effect.</source>
         <extracomment>Full effect here means that the setting will not propagate to all parts of the app so some parts will still collect logs</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Detta inaktiverar logginsamling, du bör starta om appen efteråt så att det får full effekt.</translation>
     </message>
     <message>
         <source>After disabling logging all previous logs will be deleted to save space.</source>
-        <translation type="unfinished"></translation>
+        <translation>När du har inaktiverat loggning raderas alla tidigare loggar för att spara utrymme.</translation>
     </message>
     <message>
         <source>If you have not exported the logs anywhere you should do so before disabling logging.</source>
-        <translation type="unfinished"></translation>
+        <translation>Om du inte har exporterat loggen, bör du göra det innan du inaktiverar loggning.</translation>
     </message>
     <message>
         <source>Custom system message</source>
-        <translation type="unfinished"></translation>
+        <translation>Anpassat systemmeddelande</translation>
     </message>
     <message>
         <source>You can set a system message that is sent as an instruction to GPT before each chat begins.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kan ange ett systemmeddelande som skickas som en instruktion till GPT innan varje chatt börjar.</translation>
     </message>
     <message>
         <source>Note: The current version of GPT doesn&apos;t pay strong attention to the system message, it should be mitigated when the model is updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>Notera att den aktuella versionen av GPT inte ägnar så stor uppmärksamhet åt systemmeddelandet, detta bör förbättras när modellen uppdateras.</translation>
     </message>
     <message>
         <source>Note: The system message counts towards your &apos;%1&apos; limit.</source>
-        <extracomment>The %1 gets replaced by the translation for &apos;Conversation length&apos;</extracomment>
-        <translation type="unfinished"></translation>
+        <extracomment>The %1 gets replaced by the translation for 'Conversation length'</extracomment>
+        <translation>Notera att systemmeddelandet räknas in i din gräns på &quot;%1&quot; meddelanden.</translation>
     </message>
     <message>
         <source>Conversation length</source>
-        <translation type="unfinished"></translation>
+        <translation>Konversationslängd</translation>
     </message>
     <message>
         <source>For example you can write &apos;You are a helpful assistant&apos; and the AI should try to follow your instructions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kan till exempel skriva &quot;Du är en hjälpsam assistent&quot; och AI bör försöka följa dina instruktioner.</translation>
     </message>
 </context>
 </TS>
