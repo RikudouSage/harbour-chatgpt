@@ -3,7 +3,7 @@ Name:       harbour-chatgpt
 %define _binary_payload w2.xzdio
 
 Summary:    ChatGPT
-Version:    0.9.5
+Version:    0.9.6
 Release:    1
 License:    MIT
 URL:        https://openrepos.net/content/rikudousennin/chatgpt
