@@ -113,6 +113,22 @@ Page {
                                      listItem.remove();
                                  }
                              }
+
+                             IconMenuItem {
+                                 text: qsTr("Rename")
+                                 icon.source: "image://theme/icon-m-edit"
+
+                                 onClicked: {
+                                     const chat = item;
+                                     const _logger = logger;
+                                     const dialog = pageStack.push("ChangeChatTitleDialog.qml", {chatTitle: item.title});
+                                     dialog.accepted.connect(function() {
+                                         chat.title = dialog.chatTitle;
+                                         chat.save();
+                                         _logger.debug("Changed chat title to " + dialog.chatTitle);
+                                     });
+                                 }
+                             }
                          }
                      }
                 }
