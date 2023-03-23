@@ -91,22 +91,23 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
 
     connect(reply, &QNetworkReply::readyRead, [=]() {
         const auto raw = QString(reply->readAll());
+#ifdef QT_DEBUG
+    qDebug() << raw;
+#endif
         logger->debug("Got raw reply: " + raw);
         const auto parts = raw.split("data: ");
         for (auto part : parts) {
-            part = part.trimmed();
             logger->debug("Processing partial reply:" + part);
-            if (part == "[DONE]") {
+            if (part.trimmed() == "[DONE]") {
                 logger->debug("Server has finished sendimg partial messages, whole message has been sent");
                 emit messageFinished();
                 return;
             }
             const auto document = QJsonDocument::fromJson(part.toUtf8()).object();
             const auto chunk = document["choices"].toArray()[0].toObject()["delta"].toObject()["content"].toString();
-            if (!chunk.trimmed().isEmpty()) {
-                logger->debug("Chunk was extracted from response: " + chunk);
-                emit chunkReceived(chunk);
-            }
+
+            logger->debug("Chunk was extracted from response: " + chunk);
+            emit chunkReceived(chunk);
         }
     });
 }
