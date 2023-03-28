@@ -51,7 +51,8 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 CONFIG += sailfishapp_i18n
 
 TRANSLATIONS += translations/harbour-chatgpt-cs.ts \
-                translations/harbour-chatgpt-sv.ts
+                translations/harbour-chatgpt-sv.ts \
+                translations/harbour-chatgpt-pl.ts
 
 HEADERS += \
     src/chat.h \
