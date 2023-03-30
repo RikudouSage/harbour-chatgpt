@@ -107,6 +107,19 @@ void Settings::setSystemMessage(const QString &message)
     }
 }
 
+QString Settings::language()
+{
+    return getStringSetting("language");
+}
+
+void Settings::setLanguage(const QString &language)
+{
+    if (language != this->language()) {
+        setSetting("language", language);
+        emit languageChanged();
+    }
+}
+
 void Settings::setSetting(const QString &name, QJsonValue value)
 {
     QSqlQuery existing(database);

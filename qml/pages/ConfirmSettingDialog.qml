@@ -21,6 +21,12 @@ Dialog {
     property alias stringFieldDescription: stringField.label
     property alias stringFieldValue: stringField.text
 
+    property alias comboBoxVisible: comboBoxField.visible
+    property string comboBoxValue
+    property alias comboBoxResult: comboBoxField.realValue
+    property alias comboBoxDescription: comboBoxField.label
+    property var comboBoxOptions: ({})
+
     canAccept: (intFieldVisible ? intValue.length > 0 : true)
 
     id: page
@@ -70,6 +76,36 @@ Dialog {
                 visible: false
                 width: parent.width
                 label: sliderDescription ? sliderDescription + ' (' + String(value) + ')' : String(value)
+            }
+
+            ComboBox {
+                property string realValue: comboBoxOptions[currentIndex] ? comboBoxOptions[currentIndex].value : ''
+
+                id: comboBoxField
+                visible: false
+                menu: ContextMenu {
+                    Repeater {
+                        model: comboBoxOptions
+                        MenuItem {
+                            text: comboBoxOptions[index].name
+                        }
+                    }
+                }
+
+                Component.onCompleted: {
+                    if (comboBoxValue) {
+                        for (var i in comboBoxOptions) {
+                            if (!comboBoxOptions.hasOwnProperty(i)) {
+                                continue;
+                            }
+                            const item = comboBoxOptions[i];
+                            if (item.value === comboBoxValue) {
+                                currentIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
