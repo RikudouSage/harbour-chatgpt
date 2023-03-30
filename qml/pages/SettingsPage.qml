@@ -7,6 +7,10 @@ Page {
     id: page
     allowedOrientations: Orientation.All
 
+    LocaleHelper {
+        id: locale
+    }
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height
@@ -19,6 +23,50 @@ Page {
             PageHeader {
                 //: Page title
                 title: qsTr("Settings")
+            }
+
+            TextSwitch {
+                text: qsTr("Language") + ": " + (settings.language
+                                                 ? locale.languageName(settings.language)
+                                                 //: As in automatically selected language
+                                                 : qsTr("Automatic"))
+                checked: true
+                automaticCheck: false
+
+                onClicked: {
+                    const dialog = pageStack.push("ConfirmSettingDialog.qml", {
+                        messages: [
+                            qsTr("Choose a display language for the app:"),
+                        ],
+                        comboBoxVisible: true,
+                        comboBoxValue: settings.language,
+                        comboBoxDescription: qsTr("Language"),
+                        comboBoxOptions: (function() {
+                            var result = [
+                                {
+                                    //: As in automatically selected language
+                                    name: qsTr("Automatic"),
+                                    value: "",
+                                },
+                            ];
+                            for (var i in languages) {
+                                if (!languages.hasOwnProperty(i)) {
+                                    continue;
+                                }
+
+                                result.push({
+                                    name: locale.languageName(languages[i]),
+                                    value: languages[i],
+                                });
+                            }
+
+                            return result;
+                        })(),
+                    });
+                    dialog.accepted.connect(function() {
+                        settings.language = dialog.comboBoxResult;
+                    });
+                }
             }
 
             TextSwitch {

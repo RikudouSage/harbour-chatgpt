@@ -22,6 +22,7 @@ SOURCES += src/harbour-chatgpt.cpp \
     src/chatmessage.cpp \
     src/chatstorage.cpp \
     src/databasemanager.cpp \
+    src/localehelper.cpp \
     src/logginghandler.cpp \
     src/logsexporter.cpp \
     src/secretshandler.cpp \
@@ -54,12 +55,16 @@ TRANSLATIONS += translations/harbour-chatgpt-cs.ts \
                 translations/harbour-chatgpt-sv.ts \
                 translations/harbour-chatgpt-pl.ts
 
+DEFINES += "APP_TRANSLATIONS=\"\\\"$$TRANSLATIONS\\\"\""
+DEFINES += "LOCALIZATIONS_DIR=\\\"/usr/share/$$TARGET/translations\\\""
+
 HEADERS += \
     src/chat.h \
     src/chatgptclient.h \
     src/chatmessage.h \
     src/chatstorage.h \
     src/databasemanager.h \
+    src/localehelper.h \
     src/logginghandler.h \
     src/logsexporter.h \
     src/secretshandler.h \

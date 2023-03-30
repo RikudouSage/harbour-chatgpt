@@ -310,5 +310,18 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
         <source>For example you can write &apos;You are a helpful assistant&apos; and the AI should try to follow your instructions.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <extracomment>As in automatically selected language</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose a display language for the app:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
