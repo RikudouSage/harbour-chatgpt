@@ -11,9 +11,34 @@ Page {
         id: locale
     }
 
+    SecretsHandler {
+        id: secrets
+    }
+
+    ChatGptClient {
+        id: chatGpt
+
+        onApiKeyChecked: {
+            if (isValid) {
+                secrets.setApiKey(apiKey);
+                loader.running = false;
+            } else {
+                secrets.removeApiKey();
+                pageStack.replace("InitialChecksPage.qml");
+            }
+        }
+    }
+
+    BusyLabel {
+        id: loader
+        text: qsTr("Checking api key")
+        running: false
+    }
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height
+        visible: !loader.running
 
         Column {
             id: column
@@ -23,6 +48,27 @@ Page {
             PageHeader {
                 //: Page title
                 title: qsTr("Settings")
+            }
+
+            PullDownMenu {
+                MenuItem {
+                    text: qsTr("Change api key")
+                    onClicked: {
+                        const dialog = pageStack.push("ConfirmSettingDialog.qml", {
+                            messages: [
+                                qsTr("Here you can change the api key in use for this app."),
+                                qsTr("The key will be validated before being accepted."),
+                            ],
+                            stringFieldVisible: true,
+                            stringFieldDescription: qsTr('API key'),
+                            stringFieldValue: secrets.apiKey(),
+                        });
+                        dialog.accepted.connect(function() {
+                            loader.running = true;
+                            chatGpt.checkApiKey(dialog.stringFieldValue);
+                        });
+                    }
+                }
             }
 
             TextSwitch {

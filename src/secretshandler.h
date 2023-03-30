@@ -19,10 +19,10 @@ class SecretsHandler : public QObject
 public:
     explicit SecretsHandler(QObject *parent = nullptr);
 
-    QString apiKey();
+    Q_INVOKABLE QString apiKey();
     Q_INVOKABLE bool hasApiKey();
     Q_INVOKABLE void setApiKey(const QString &apiKey);
-    void removeApiKey();
+    Q_INVOKABLE void removeApiKey();
 
 private:
     const LoggingHandler *logger = new LoggingHandler(this);
