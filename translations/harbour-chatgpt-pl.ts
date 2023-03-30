@@ -323,5 +323,25 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
         <source>Choose a display language for the app:</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Change api key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checking api key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Here you can change the api key in use for this app.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The key will be validated before being accepted.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>API key</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
