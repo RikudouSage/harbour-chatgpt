@@ -19,7 +19,6 @@ Page {
         id: chatGpt
 
         onApiKeyChecked: {
-            console.log(isValid);
             if (isValid) {
                 secrets.setApiKey(apiKey);
                 loader.running = false;
