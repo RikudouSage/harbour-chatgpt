@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sv">
 <context>
     <name>ApiKeyHelpPage</name>
     <message>
@@ -299,7 +297,7 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <source>Note: The system message counts towards your &apos;%1&apos; limit.</source>
-        <extracomment>The %1 gets replaced by the translation for &apos;Conversation length&apos;</extracomment>
+        <extracomment>The %1 gets replaced by the translation for 'Conversation length'</extracomment>
         <translation>Notera att systemmeddelandet räknas in i din gräns på &quot;%1&quot; meddelanden.</translation>
     </message>
     <message>
@@ -312,36 +310,36 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Språk</translation>
     </message>
     <message>
         <source>Automatic</source>
         <extracomment>As in automatically selected language</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Automatiskt</translation>
     </message>
     <message>
         <source>Choose a display language for the app:</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj ett visningsspråk för appen:</translation>
     </message>
     <message>
         <source>Change api key</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändra API-nyckel</translation>
     </message>
     <message>
         <source>Checking api key</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrollerar API-nyckel</translation>
     </message>
     <message>
         <source>Here you can change the api key in use for this app.</source>
-        <translation type="unfinished"></translation>
+        <translation>Här kan du ändra den API-nyckel du använder i appen.</translation>
     </message>
     <message>
         <source>The key will be validated before being accepted.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyckeln kommer att valideras innan den accepteras.</translation>
     </message>
     <message>
         <source>API key</source>
-        <translation type="unfinished"></translation>
+        <translation>API-nyckel</translation>
     </message>
 </context>
 </TS>
