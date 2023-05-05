@@ -16,23 +16,8 @@ ChatGptClient::ChatGptClient(QObject *parent) : QObject(parent)
 
 void ChatGptClient::checkApiKey(const QString &apiKey)
 {
-    constexpr auto url = "https://api.openai.com/v1/models";
-
-    QNetworkRequest request;
-    request.setUrl(QUrl(url));
-    request.setRawHeader("Authorization", QString("Bearer " + apiKey).toUtf8());
-
-    QNetworkAccessManager *networkAccessManager = new QNetworkAccessManager(this);
-
-    connect(networkAccessManager, &QNetworkAccessManager::finished, [=](QNetworkReply *reply) {
-        const auto statusCode = reply->attribute(QNetworkRequest::Attribute::HttpStatusCodeAttribute).toInt();
-        logger->debug("Got response with status code " + QString::number(statusCode));
-        emit apiKeyChecked(statusCode == 200, apiKey);
-        networkAccessManager->deleteLater();
-    });
-
     logger->debug("Checking whether provided api key is valid");
-    networkAccessManager->get(request);
+    listModels(apiKey, true, false);
 }
 
 void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
@@ -61,7 +46,7 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
 
     QJsonObject body;
     QJsonArray messages;
-    body["model"] = "gpt-3.5-turbo";
+    body["model"] = settings->aiModel();
 
     for (const auto messageQObject : chat->messages().mid(chat->messages().size() - settings->conversationLength())) {
         const auto message = static_cast<ChatMessage*>(messageQObject);
@@ -110,4 +95,45 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
             emit chunkReceived(chunk);
         }
     });
+}
+
+void ChatGptClient::getModels()
+{
+    logger->debug("Fetching list of available models.");
+    listModels(secretsHandler->apiKey(), false, true);
+}
+
+void ChatGptClient::listModels(const QString &apiKey, bool emitApiKeyCheck, bool emitModelsList)
+{
+    constexpr auto url = "https://api.openai.com/v1/models";
+
+    QNetworkRequest request;
+    request.setUrl(QUrl(url));
+    request.setRawHeader("Authorization", QString("Bearer " + apiKey).toUtf8());
+
+    QNetworkAccessManager *networkAccessManager = new QNetworkAccessManager(this);
+
+    connect(networkAccessManager, &QNetworkAccessManager::finished, [=](QNetworkReply *reply) {
+        const auto statusCode = reply->attribute(QNetworkRequest::Attribute::HttpStatusCodeAttribute).toInt();
+        logger->debug("Got response with status code " + QString::number(statusCode));
+        if (emitApiKeyCheck) {
+            emit apiKeyChecked(statusCode == 200, apiKey);
+        }
+        if (statusCode == 200 && emitModelsList) {
+            QStringList availableModels;
+            const auto models = QJsonDocument::fromJson(reply->readAll()).object()["data"].toArray();
+            for (const auto model : models) {
+                const auto modelName = model.toObject()["id"].toString();
+                if (!modelName.startsWith("gpt")) {
+                    continue;
+                }
+                availableModels.append(modelName);
+            }
+            emit modelsListReceived(availableModels);
+        }
+        networkAccessManager->deleteLater();
+    });
+
+    logger->debug("Sending a request for list of available models");
+    networkAccessManager->get(request);
 }

@@ -343,5 +343,29 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
         <source>API key</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>AI model: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure the AI model used for generating responses.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Newer models are generally better than the old ones (for example %1 is better than %2).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you choose a base model (like %1) it will automatically use the latest model of that series. You can avoid this by choosing specific version (like %2).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading available AI models</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI model</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

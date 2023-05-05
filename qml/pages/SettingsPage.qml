@@ -4,8 +4,19 @@ import Sailfish.Silica 1.0
 import cz.chrastecky.chatgpt 1.0
 
 Page {
+    property var doAfterLoad: []
+    property var modelsList: []
+
     id: page
     allowedOrientations: Orientation.All
+
+    function doAfterLoadOrNow(callable) {
+        if (page.status === PageStatus.Active) {
+            callable();
+        } else {
+            doAfterLoad.push(callable);
+        }
+    }
 
     LocaleHelper {
         id: locale
@@ -27,6 +38,10 @@ Page {
                 pageStack.replace("InitialChecksPage.qml");
             }
         }
+
+        onModelsListReceived: {
+            modelsList = models;
+        }
     }
 
     BusyLabel {
@@ -35,10 +50,16 @@ Page {
         running: false
     }
 
+    BusyLabel {
+        id: loader2
+        text: qsTr("Loading available AI models")
+        running: modelsList.length === 0
+    }
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height
-        visible: !loader.running
+        visible: !loader.running && !loader2.running
 
         Column {
             id: column
@@ -169,6 +190,32 @@ Page {
                     dialog.accepted.connect(function() {
                         const value = dialog.intValue;
                         settings.conversationLength = value;
+                    });
+                }
+            }
+
+            TextSwitch {
+                text: qsTr("AI model: %1").arg(settings.aiModel)
+                checked: true
+                automaticCheck: false
+
+                onClicked: {
+                    const dialog = pageStack.push("ConfirmSettingDialog.qml", {
+                        messages: [
+                            qsTr("Configure the AI model used for generating responses."),
+                            qsTr("Newer models are generally better than the old ones (for example %1 is better than %2).").arg('gpt-4').arg('gpt-3.5-turbo'),
+                            qsTr("If you choose a base model (like %1) it will automatically use the latest model of that series. You can avoid this by choosing specific version (like %2).").arg('gpt-3.5-turbo').arg('gpt-3.5-turbo-0301')
+                        ],
+                        comboBoxVisible: true,
+                        comboBoxValue: settings.aiModel,
+                        comboBoxDescription: qsTr("AI model"),
+                        comboBoxOptions: modelsList.map(function(item) {
+                            return {name: item, value: item};
+                        }),
+                    });
+
+                    dialog.accepted.connect(function() {
+                        settings.aiModel = dialog.comboBoxResult;
                     });
                 }
             }
@@ -312,7 +359,17 @@ Page {
         }
     }
 
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            while (doAfterLoad.length) {
+                const callable = doAfterLoad.shift();
+                callable();
+            }
+        }
+    }
+
     Component.onCompleted: {
+        chatGpt.getModels();
         logger.debug("Navigated to SettingsPage.qml");
     }
 }
