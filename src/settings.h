@@ -17,6 +17,7 @@ class Settings : public QObject
     Q_PROPERTY(bool enableLogging READ enableLogging WRITE setEnableLogging NOTIFY enableLoggingChanged)
     Q_PROPERTY(QString systemMessage READ systemMessage WRITE setSystemMessage NOTIFY systemMessageChanged)
     Q_PROPERTY(QString language READ language WRITE setLanguage NOTIFY languageChanged)
+    Q_PROPERTY(QString aiModel READ aiModel WRITE setAiModel NOTIFY aiModelChanged)
 public:
     explicit Settings(QObject *parent = nullptr);
 
@@ -36,6 +37,8 @@ public:
     void setSystemMessage(const QString &message);
     QString language();
     void setLanguage(const QString &language);
+    QString aiModel();
+    void setAiModel(const QString &model);
 
 signals:
     void conversationLengthChanged();
@@ -46,6 +49,7 @@ signals:
     void enableLoggingChanged();
     void systemMessageChanged();
     void languageChanged();
+    void aiModelChanged();
 
 private:
     void setSetting(const QString &name, QJsonValue value);

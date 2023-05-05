@@ -120,6 +120,19 @@ void Settings::setLanguage(const QString &language)
     }
 }
 
+QString Settings::aiModel()
+{
+    return getStringSetting("aiModel", "gpt-3.5-turbo");
+}
+
+void Settings::setAiModel(const QString &model)
+{
+    if (model != this->aiModel()) {
+        setSetting("aiModel", model);
+        emit aiModelChanged();
+    }
+}
+
 void Settings::setSetting(const QString &name, QJsonValue value)
 {
     QSqlQuery existing(database);

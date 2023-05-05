@@ -17,13 +17,18 @@ public:
 
     Q_INVOKABLE void checkApiKey(const QString &apiKey);
     Q_INVOKABLE void postMessage(QObject *chat, const QString &message);
+    Q_INVOKABLE void getModels();
 
 signals:
     void apiKeyChecked(bool isValid, const QString &apiKey);
+    void modelsListReceived(const QStringList &models);
     void unauthorized();
     void chunkReceived(const QString &chunk);
     void messageFinished();
     void messageSent();
+
+private:
+    void listModels(const QString &apiKey, bool emitApiKeyCheck, bool emitModelsList);
 
 private:
     SecretsHandler *secretsHandler = new SecretsHandler(this);
