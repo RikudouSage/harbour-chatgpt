@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sv">
 <context>
     <name>ApiKeyHelpPage</name>
     <message>
@@ -299,7 +297,7 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <source>Note: The system message counts towards your &apos;%1&apos; limit.</source>
-        <extracomment>The %1 gets replaced by the translation for &apos;Conversation length&apos;</extracomment>
+        <extracomment>The %1 gets replaced by the translation for 'Conversation length'</extracomment>
         <translation>Notera att systemmeddelandet räknas in i din gräns på &quot;%1&quot; meddelanden.</translation>
     </message>
     <message>
@@ -345,27 +343,27 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <source>AI model: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>AI-modell: %1</translation>
     </message>
     <message>
         <source>Configure the AI model used for generating responses.</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurera den AI-modell som används för att generera svar.</translation>
     </message>
     <message>
         <source>Newer models are generally better than the old ones (for example %1 is better than %2).</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyare modeller är generellt bättre än äldre (%1 är t.ex. bättre än %2)</translation>
     </message>
     <message>
         <source>If you choose a base model (like %1) it will automatically use the latest model of that series. You can avoid this by choosing specific version (like %2).</source>
-        <translation type="unfinished"></translation>
+        <translation>Om du väljer en basmodell (som %1), används senaste modell i den serien automatiskt. Du kan undvika detta genom att välja en specifik version (som %2).</translation>
     </message>
     <message>
         <source>Loading available AI models</source>
-        <translation type="unfinished"></translation>
+        <translation>Läser in tillgängliga AI-modeller</translation>
     </message>
     <message>
         <source>AI model</source>
-        <translation type="unfinished"></translation>
+        <translation>AI-modell</translation>
     </message>
 </context>
 </TS>
