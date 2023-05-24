@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
 <context>
     <name>ApiKeyHelpPage</name>
     <message>
@@ -299,7 +297,7 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <source>Note: The system message counts towards your &apos;%1&apos; limit.</source>
-        <extracomment>The %1 gets replaced by the translation for &apos;Conversation length&apos;</extracomment>
+        <extracomment>The %1 gets replaced by the translation for 'Conversation length'</extracomment>
         <translation>Uwaga: wiadomość systemowa wlicza się do limitu &quot;%1&quot; wiadomości.</translation>
     </message>
     <message>
@@ -312,60 +310,60 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Język</translation>
     </message>
     <message>
         <source>Automatic</source>
         <extracomment>As in automatically selected language</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Automatyczne</translation>
     </message>
     <message>
         <source>Choose a display language for the app:</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz język aplikacji:</translation>
     </message>
     <message>
         <source>Change api key</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmień klucz API</translation>
     </message>
     <message>
         <source>Checking api key</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprawdzanie klucza API</translation>
     </message>
     <message>
         <source>Here you can change the api key in use for this app.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutaj możesz zmienić klucz API użyty w aplikacji.</translation>
     </message>
     <message>
         <source>The key will be validated before being accepted.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klucz zostanie zweryfikowany przed akceptacją.</translation>
     </message>
     <message>
         <source>API key</source>
-        <translation type="unfinished"></translation>
+        <translation>Klucz API</translation>
     </message>
     <message>
         <source>AI model: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Model AI: %1</translation>
     </message>
     <message>
         <source>Configure the AI model used for generating responses.</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfiguruj model AI używany do generowania odpowiedzi.</translation>
     </message>
     <message>
         <source>Newer models are generally better than the old ones (for example %1 is better than %2).</source>
-        <translation type="unfinished"></translation>
+        <translation>Nowsze modele ogólnie są lepsze od starszych (na przykład %1 jest lepsze niż %2).</translation>
     </message>
     <message>
         <source>If you choose a base model (like %1) it will automatically use the latest model of that series. You can avoid this by choosing specific version (like %2).</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeżeli wybierzesz podstawowy model (np. %1) automatycznie użyty zostanie najnowszy model z tej serii. Możesz to ominąć wybierając specyficzną wersję (np. %2).</translation>
     </message>
     <message>
         <source>Loading available AI models</source>
-        <translation type="unfinished"></translation>
+        <translation>Ładowanie dostępnych modeli AI</translation>
     </message>
     <message>
         <source>AI model</source>
-        <translation type="unfinished"></translation>
+        <translation>Model AI</translation>
     </message>
 </context>
 </TS>
