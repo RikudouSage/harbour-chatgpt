@@ -13,7 +13,7 @@
 #include <sailfishapp.h>
 
 #include "secretshandler.h"
-#include "chatgptclient.h"
+#include "openaiclient.h"
 #include "chatstorage.h"
 #include "databasemanager.h"
 #include "chatmessage.h"
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 #endif
 
     qmlRegisterType<SecretsHandler>("cz.chrastecky.chatgpt", 1, 0, "SecretsHandler");
-    qmlRegisterType<ChatGptClient>("cz.chrastecky.chatgpt", 1, 0, "ChatGptClient");
+    qmlRegisterType<OpenAiClient>("cz.chrastecky.chatgpt", 1, 0, "ChatGptClient");
     qmlRegisterType<ChatStorage>("cz.chrastecky.chatgpt", 1, 0, "ChatStorage");
     qmlRegisterType<LogsExporter>("cz.chrastecky.logs", 1, 0, "LogsExporter");
     qmlRegisterType<LocaleHelper>("cz.chrastecky.chatgpt", 1, 0, "LocaleHelper");

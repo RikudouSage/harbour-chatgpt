@@ -18,13 +18,13 @@ QT += sql
 
 SOURCES += src/harbour-chatgpt.cpp \
     src/chat.cpp \
-    src/chatgptclient.cpp \
     src/chatmessage.cpp \
     src/chatstorage.cpp \
     src/databasemanager.cpp \
     src/localehelper.cpp \
     src/logginghandler.cpp \
     src/logsexporter.cpp \
+    src/openaiclient.cpp \
     src/secretshandler.cpp \
     src/settings.cpp
 
@@ -60,13 +60,13 @@ DEFINES += "LOCALIZATIONS_DIR=\\\"/usr/share/$$TARGET/translations\\\""
 
 HEADERS += \
     src/chat.h \
-    src/chatgptclient.h \
     src/chatmessage.h \
     src/chatstorage.h \
     src/databasemanager.h \
     src/localehelper.h \
     src/logginghandler.h \
     src/logsexporter.h \
+    src/openaiclient.h \
     src/secretshandler.h \
     src/settings.h \
     src/uuidhelper.h

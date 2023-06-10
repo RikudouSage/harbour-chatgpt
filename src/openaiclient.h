@@ -1,5 +1,5 @@
-#ifndef CHATGPTCLIENT_H
-#define CHATGPTCLIENT_H
+#ifndef OPENAICLIENT_H
+#define OPENAICLIENT_H
 
 #include <QObject>
 #include <QNetworkAccessManager>
@@ -9,11 +9,11 @@
 #include "settings.h"
 #include "logginghandler.h"
 
-class ChatGptClient : public QObject
+class OpenAiClient : public QObject
 {
     Q_OBJECT
 public:
-    explicit ChatGptClient(QObject *parent = nullptr);
+    explicit OpenAiClient(QObject *parent = nullptr);
 
     Q_INVOKABLE void checkApiKey(const QString &apiKey);
     Q_INVOKABLE void postMessage(QObject *chat, const QString &message);
@@ -36,4 +36,4 @@ private:
     const LoggingHandler *logger = new LoggingHandler(this);
 };
 
-#endif // CHATGPTCLIENT_H
+#endif // OPENAICLIENT_H

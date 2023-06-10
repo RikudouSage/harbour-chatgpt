@@ -1,4 +1,4 @@
-#include "chatgptclient.h"
+#include "openaiclient.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
@@ -9,18 +9,18 @@
 
 #include <QDebug>
 
-ChatGptClient::ChatGptClient(QObject *parent) : QObject(parent)
+OpenAiClient::OpenAiClient(QObject *parent) : QObject(parent)
 {
 
 }
 
-void ChatGptClient::checkApiKey(const QString &apiKey)
+void OpenAiClient::checkApiKey(const QString &apiKey)
 {
     logger->debug("Checking whether provided api key is valid");
     listModels(apiKey, true, false);
 }
 
-void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
+void OpenAiClient::postMessage(QObject *chatQObject, const QString &message)
 {
     auto chat = static_cast<Chat*>(chatQObject);
     chat->appendMessage(message, ChatMessage::Author::User);
@@ -97,13 +97,13 @@ void ChatGptClient::postMessage(QObject *chatQObject, const QString &message)
     });
 }
 
-void ChatGptClient::getModels()
+void OpenAiClient::getModels()
 {
     logger->debug("Fetching list of available models.");
     listModels(secretsHandler->apiKey(), false, true);
 }
 
-void ChatGptClient::listModels(const QString &apiKey, bool emitApiKeyCheck, bool emitModelsList)
+void OpenAiClient::listModels(const QString &apiKey, bool emitApiKeyCheck, bool emitModelsList)
 {
     constexpr auto url = "https://api.openai.com/v1/models";
 
