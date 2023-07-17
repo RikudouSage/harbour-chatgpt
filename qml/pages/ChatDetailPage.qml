@@ -94,7 +94,7 @@ Page {
 
                     onClicked: {
                         Clipboard.text = message.text;
-                        toaster.show(qsTr("The message has been copied to clipboard."))
+                        toaster.show(qsTr("The message has been copied to the clipboard."))
                     }
 
                     Rectangle {
