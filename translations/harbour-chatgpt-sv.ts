@@ -55,6 +55,10 @@
         <source>Type your message</source>
         <translation>Skriv ditt meddelande</translation>
     </message>
+    <message>
+        <source>The message has been copied to clipboard.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ChatListPage</name>

@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.1
 
 import cz.chrastecky.chatgpt 1.0
 
+import "../components" as Components
+
 Page {
     id: page
     allowedOrientations: Orientation.All
@@ -11,6 +13,10 @@ Page {
     property var chat: null
     property string messageInProgress: ''
     property bool chatIndicatorVisible: false
+
+    Components.Toaster {
+        id: toaster
+    }
 
     ChatStorage {
         id: chatStorage
@@ -88,6 +94,7 @@ Page {
 
                     onClicked: {
                         Clipboard.text = message.text;
+                        toaster.show(qsTr("The message has been copied to clipboard."))
                     }
 
                     Rectangle {
