@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pl">
 <context>
     <name>ApiKeyHelpPage</name>
     <message>
@@ -52,6 +54,10 @@
     <message>
         <source>Type your message</source>
         <translation>Napisz wiadomość</translation>
+    </message>
+    <message>
+        <source>The message has been copied to clipboard.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -297,7 +303,7 @@ Read the description at https://platform.openai.com/docs/api-reference/chat/crea
     </message>
     <message>
         <source>Note: The system message counts towards your &apos;%1&apos; limit.</source>
-        <extracomment>The %1 gets replaced by the translation for 'Conversation length'</extracomment>
+        <extracomment>The %1 gets replaced by the translation for &apos;Conversation length&apos;</extracomment>
         <translation>Uwaga: wiadomość systemowa wlicza się do limitu &quot;%1&quot; wiadomości.</translation>
     </message>
     <message>

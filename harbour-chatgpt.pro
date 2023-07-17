@@ -29,6 +29,7 @@ SOURCES += src/harbour-chatgpt.cpp \
     src/settings.cpp
 
 DISTFILES += qml/harbour-chatgpt.qml \
+    qml/components/Toaster.qml \
     qml/cover/CoverPage.qml \
     qml/pages/ApiKeyHelpPage.qml \
     qml/pages/ChangeChatTitleDialog.qml \
