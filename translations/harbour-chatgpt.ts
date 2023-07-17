@@ -56,7 +56,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The message has been copied to clipboard.</source>
+        <source>The message has been copied to the clipboard.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
